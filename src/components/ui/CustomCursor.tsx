@@ -79,19 +79,7 @@ export function CustomCursor() {
 
     return (
         <>
-            <motion.div
-                className={cn(
-                    "fixed top-0 left-0 w-8 h-8 rounded-full border border-primary pointer-events-none z-[9999] hidden lg:block",
-                    isHovering && "scale-[1.5] bg-primary/10",
-                    isClicking && "scale-[0.9]"
-                )}
-                style={{
-                    x: springX,
-                    y: springY,
-                    translateX: '-50%',
-                    translateY: '-50%',
-                }}
-            />
+
             <motion.div
                 className="fixed top-0 left-0 w-1.5 h-1.5 bg-primary rounded-full pointer-events-none z-[10000] hidden lg:block"
                 style={{

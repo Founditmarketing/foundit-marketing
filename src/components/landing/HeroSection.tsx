@@ -157,19 +157,19 @@ export function HeroSection() {
             className="grid lg:grid-cols-12 gap-12 items-center"
           >
             <div className="lg:col-span-8 relative z-20">
-              <div className="overflow-hidden mb-0 py-2 lg:py-8 px-4">
+              <div className="mb-0 py-2 lg:py-8 px-2 text-center w-full">
                 <motion.h1
                   variants={revealVariants}
-                  className="text-foreground text-oversized-ultimate"
+                  className="text-foreground text-[11.5vw] lg:text-[7vw] leading-[0.85] tracking-[-0.04em] font-black font-heading select-none uppercase italic"
                 >
                   <TextScramble text="Stop Competing." delay={200} />
                 </motion.h1>
               </div>
 
-              <div className="mb-0 py-2 lg:py-8 px-4">
+              <div className="mb-0 py-2 lg:py-8 px-2 text-center w-full">
                 <motion.h1
                   variants={revealVariants}
-                  className="text-foreground dark:text-primary text-oversized-ultimate pb-6"
+                  className="text-foreground dark:text-primary text-[11.5vw] lg:text-[7vw] leading-[0.85] tracking-[-0.04em] font-black font-heading select-none uppercase italic pb-6"
                 >
                   <TextScramble text="Start Dominating." delay={600} />
                 </motion.h1>

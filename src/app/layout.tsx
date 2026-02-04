@@ -66,7 +66,7 @@ export default function RootLayout({
           disableTransitionOnChange
         >
           <SmoothScrollProvider>
-            <CustomCursor />
+
             <Header />
             {children}
             <Footer />

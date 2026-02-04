@@ -14,9 +14,7 @@ export function CustomCursor() {
     const cursorX = useMotionValue(-100);
     const cursorY = useMotionValue(-100);
 
-    const springConfig = { damping: 25, stiffness: 250 };
-    const springX = useSpring(cursorX, springConfig);
-    const springY = useSpring(cursorY, springConfig);
+
 
     useEffect(() => {
         setIsMounted(true);

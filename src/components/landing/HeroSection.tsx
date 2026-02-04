@@ -166,10 +166,10 @@ export function HeroSection() {
                 </motion.h1>
               </div>
 
-              <div className="overflow-hidden mb-8 py-2 lg:py-8 px-4">
+              <div className="mb-0 py-2 lg:py-8 px-4">
                 <motion.h1
                   variants={revealVariants}
-                  className="text-foreground dark:text-primary text-oversized-ultimate"
+                  className="text-foreground dark:text-primary text-oversized-ultimate pb-6"
                 >
                   <TextScramble text="Start Dominating." delay={600} />
                 </motion.h1>

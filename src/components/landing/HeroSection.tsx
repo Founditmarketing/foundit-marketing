@@ -160,7 +160,7 @@ export function HeroSection() {
               <div className="mb-0 py-2 lg:py-8 px-2 text-center w-full">
                 <motion.h1
                   variants={revealVariants}
-                  className="text-foreground text-[9.5vw] lg:text-[7vw] leading-[0.85] tracking-[-0.04em] font-black font-heading select-none uppercase italic"
+                  className="text-foreground text-[8.5vw] lg:text-[7vw] leading-[0.85] tracking-[-0.04em] font-black font-heading select-none uppercase italic"
                 >
                   <TextScramble text="Stop Competing." delay={200} />
                 </motion.h1>
@@ -169,7 +169,7 @@ export function HeroSection() {
               <div className="mb-0 py-2 lg:py-8 px-2 text-center w-full">
                 <motion.h1
                   variants={revealVariants}
-                  className="text-foreground dark:text-primary text-[9.5vw] lg:text-[7vw] leading-[0.85] tracking-[-0.04em] font-black font-heading select-none uppercase italic pb-6"
+                  className="text-foreground dark:text-primary text-[8.5vw] lg:text-[7vw] leading-[0.85] tracking-[-0.04em] font-black font-heading select-none uppercase italic pb-6"
                 >
                   <TextScramble text="Start Dominating." delay={600} />
                 </motion.h1>

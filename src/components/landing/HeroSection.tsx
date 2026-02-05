@@ -188,14 +188,14 @@ export function HeroSection() {
                 className="flex flex-col sm:flex-row items-center gap-6 w-full sm:w-auto"
               >
                 <Link href="/contact" className="w-full sm:w-auto">
-                  <LiquidButton className="w-full sm:w-auto px-12 h-20 text-xl tracking-[0.2em] shadow-2xl shadow-primary/20 hover:scale-105 active:scale-95 transition-transform">
+                  <LiquidButton className="w-full sm:w-auto px-4 sm:px-12 h-20 text-lg sm:text-xl tracking-normal sm:tracking-[0.2em] shadow-2xl shadow-primary/20 hover:scale-105 active:scale-95 transition-transform">
                     Initiate Dominance
                   </LiquidButton>
                 </Link>
                 <Button
                   asChild
                   variant="ghost"
-                  className="h-20 px-12 text-xl font-black uppercase italic tracking-tighter border-2 border-primary/10 hover:border-primary/40 hover:bg-primary/5 transition-all w-full sm:w-auto group"
+                  className="h-20 px-6 sm:px-12 text-xl font-black uppercase italic tracking-tighter border-2 border-primary/10 hover:border-primary/40 hover:bg-primary/5 transition-all w-full sm:w-auto group"
                 >
                   <Link href="/about" className="flex items-center">
                     The Philosophy

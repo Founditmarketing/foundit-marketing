@@ -109,7 +109,7 @@ export function Header() {
                   <DropdownMenuTrigger asChild>
                     <Button
                       variant="ghost"
-                      className="flex items-center gap-1 font-black uppercase italic tracking-tighter text-sm hover:text-primary transition-colors group relative"
+                      className="flex items-center gap-1 font-black uppercase italic tracking-tighter text-sm hover:text-primary hover:bg-transparent transition-colors group relative"
                     >
                       {link.title} <ChevronDown className="h-4 w-4" />
                     </Button>
@@ -138,7 +138,7 @@ export function Header() {
           </nav>
           <div className="hidden lg:flex items-center gap-6">
             <ThemeSwitcher />
-            <Button variant="ghost" className="font-black uppercase italic tracking-tighter h-11 hover:text-primary" asChild>
+            <Button variant="ghost" className="font-black uppercase italic tracking-tighter h-11 hover:text-primary hover:bg-transparent" asChild>
               <a href={mounted ? phoneHref : '#'}>
                 <Phone className="mr-2 h-4 w-4" />
                 {mounted ? phoneNumber : '...'}

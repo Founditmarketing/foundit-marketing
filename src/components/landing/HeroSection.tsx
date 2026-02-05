@@ -157,19 +157,19 @@ export function HeroSection() {
             className="grid lg:grid-cols-12 gap-12 items-center"
           >
             <div className="lg:col-span-8 relative z-20">
-              <div className="mb-0 py-2 lg:py-8 px-2 text-center w-full">
+              <div className="mb-0 py-2 lg:py-8 pl-2 pr-6 text-center w-full">
                 <motion.h1
                   variants={revealVariants}
-                  className="text-foreground text-[8.5vw] lg:text-[7vw] leading-[0.85] tracking-[-0.04em] font-black font-heading select-none uppercase italic"
+                  className="text-foreground text-[8vw] lg:text-[7vw] leading-[0.85] tracking-[-0.04em] font-black font-heading select-none uppercase italic"
                 >
                   <TextScramble text="Stop Competing." delay={200} />
                 </motion.h1>
               </div>
 
-              <div className="mb-0 py-2 lg:py-8 px-2 text-center w-full">
+              <div className="mb-0 py-2 lg:py-8 pl-2 pr-6 text-center w-full">
                 <motion.h1
                   variants={revealVariants}
-                  className="text-foreground dark:text-primary text-[8.5vw] lg:text-[7vw] leading-[0.85] tracking-[-0.04em] font-black font-heading select-none uppercase italic pb-6"
+                  className="text-foreground dark:text-primary text-[8vw] lg:text-[7vw] leading-[0.85] tracking-[-0.04em] font-black font-heading select-none uppercase italic pb-6"
                 >
                   <TextScramble text="Start Dominating." delay={600} />
                 </motion.h1>
@@ -185,17 +185,17 @@ export function HeroSection() {
 
               <motion.div
                 variants={itemVariants}
-                className="flex flex-col sm:flex-row items-center gap-6 w-full sm:w-auto"
+                className="flex flex-col sm:flex-row items-center gap-6 w-auto"
               >
-                <Link href="/contact" className="w-full sm:w-auto">
-                  <LiquidButton className="w-full sm:w-auto px-4 sm:px-12 h-20 text-lg sm:text-xl tracking-normal sm:tracking-[0.2em] shadow-2xl shadow-primary/20 hover:scale-105 active:scale-95 transition-transform">
+                <Link href="/contact" className="w-auto">
+                  <LiquidButton className="w-auto px-6 sm:px-12 h-20 text-lg sm:text-xl tracking-normal sm:tracking-[0.2em] shadow-2xl shadow-primary/20 hover:scale-105 active:scale-95 transition-transform">
                     Initiate Dominance
                   </LiquidButton>
                 </Link>
                 <Button
                   asChild
                   variant="ghost"
-                  className="h-20 px-6 sm:px-12 text-xl font-black uppercase italic tracking-tighter border-2 border-primary/10 hover:border-primary/40 hover:bg-primary/5 transition-all w-full sm:w-auto group"
+                  className="h-20 px-6 sm:px-12 text-xl font-black uppercase italic tracking-tighter border-2 border-primary/10 hover:border-primary/40 hover:bg-primary/5 transition-all w-auto group"
                 >
                   <Link href="/about" className="flex items-center">
                     The Philosophy

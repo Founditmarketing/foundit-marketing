@@ -17,6 +17,8 @@ const DynamicBackground = dynamic(
 
 
 import { LucideIcon, Users, DollarSign, Zap } from 'lucide-react';
+import { useRef } from 'react';
+import { useInView } from 'framer-motion';
 
 // StatCard component integrated from the former TrustBar
 const StatCard = ({
@@ -37,16 +39,19 @@ const StatCard = ({
   decimals?: number;
 }) => {
   const [displayValue, setDisplayValue] = useState(isAnimated ? 0 : value);
+  const countRef = useRef(null);
+  const isInView = useInView(countRef, { once: true, margin: "-50px" });
 
   useEffect(() => {
-    if (!isAnimated || typeof value !== 'number' || value === 0) {
-      setDisplayValue(value);
+    if (!isAnimated || typeof value !== 'number' || value === 0 || !isInView) {
+      if (!isInView && isAnimated) setDisplayValue(0);
+      else setDisplayValue(value);
       return;
     }
 
     let start = 0;
     const end = value;
-    const duration = 2500;
+    const duration = 2000;
     const range = end - start;
     let startTime: number | null = null;
     let animationFrameId: number;
@@ -69,7 +74,7 @@ const StatCard = ({
 
     animationFrameId = requestAnimationFrame(step);
     return () => cancelAnimationFrame(animationFrameId);
-  }, [value, isAnimated, decimals]);
+  }, [value, isAnimated, decimals, isInView]);
 
   const formatValue = (val: number) => {
     return val.toLocaleString('en-US', {
@@ -79,7 +84,7 @@ const StatCard = ({
   };
 
   return (
-    <div className="flex flex-col items-center group">
+    <div className="flex flex-col items-center group" ref={countRef}>
       <div className="flex items-center gap-4 mb-3">
         <div className="p-3 bg-primary/5 rounded-2xl border border-primary/10 group-hover:bg-primary/15 transition-colors shadow-[0_0_20px_rgba(249,115,22,0.1)]">
           <Icon className="w-8 h-8 text-primary" strokeWidth={1} />
@@ -111,33 +116,34 @@ export function HeroSection() {
     visible: {
       opacity: 1,
       transition: {
-        staggerChildren: 0.35,
+        staggerChildren: 0.15,
         delayChildren: 0.1,
       },
     },
   };
 
   const revealVariants = {
-    hidden: { y: 20, opacity: 0.1, scale: 0.99 },
+    hidden: { y: 20, opacity: 0, scale: 0.98, filter: 'blur(10px)' },
     visible: {
       y: 0,
       opacity: 1,
       scale: 1,
+      filter: 'blur(0px)',
       transition: {
         ease: [0.16, 1, 0.3, 1] as any,
-        duration: 1.0,
+        duration: 0.8,
       },
     },
   };
 
   const itemVariants = {
-    hidden: { y: 15, opacity: 0.1 },
+    hidden: { y: 15, opacity: 0 },
     visible: {
       y: 0,
       opacity: 1,
       transition: {
         ease: [0.16, 1, 0.3, 1] as any,
-        duration: 1,
+        duration: 0.8,
       },
     },
   };
@@ -162,7 +168,7 @@ export function HeroSection() {
                   variants={revealVariants}
                   className="text-foreground text-[8vw] lg:text-[7vw] leading-[0.85] tracking-[-0.04em] font-black font-heading select-none uppercase italic"
                 >
-                  <TextScramble text="Stop Competing." delay={200} />
+                  <TextScramble text="Stop Competing." delay={100} />
                 </motion.h1>
               </div>
 
@@ -171,7 +177,7 @@ export function HeroSection() {
                   variants={revealVariants}
                   className="text-foreground dark:text-primary text-[8vw] lg:text-[7vw] leading-[0.85] tracking-[-0.04em] font-black font-heading select-none uppercase italic pb-6"
                 >
-                  <TextScramble text="Start Dominating." delay={600} />
+                  <TextScramble text="Start Dominating." delay={450} />
                 </motion.h1>
               </div>
 
@@ -216,7 +222,7 @@ export function HeroSection() {
               <motion.div
                 initial={{ opacity: 0, x: 60, rotate: 5, scale: 0.9 }}
                 animate={{ opacity: 1, x: 0, rotate: -2, scale: 1 }}
-                transition={{ delay: 0.5, duration: 1.2, ease: [0.16, 1, 0.3, 1] }}
+                transition={{ delay: 0.4, duration: 1.2, ease: [0.16, 1, 0.3, 1] }}
                 className="relative w-full max-w-[400px] mx-auto aspect-[9/19] bg-card/40 border border-primary/20 backdrop-blur-3xl rounded-[3rem] lg:rounded-[4.5rem] p-1 shadow-[0_0_100px_rgba(var(--primary-rgb),0.1)] overflow-hidden group"
               >
                 {/* Holographic Edge Glow */}
@@ -331,7 +337,7 @@ export function HeroSection() {
             initial={{ opacity: 0, y: 30 }}
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
-            transition={{ delay: 0.6, duration: 1.0, ease: [0.16, 1, 0.3, 1] }}
+            transition={{ delay: 0.3, duration: 1.0, ease: [0.16, 1, 0.3, 1] }}
             className="md:col-span-4"
           >
             <StatCard
@@ -348,7 +354,7 @@ export function HeroSection() {
             initial={{ opacity: 0, y: 30 }}
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
-            transition={{ delay: 0.8, duration: 1.0, ease: [0.16, 1, 0.3, 1] }}
+            transition={{ delay: 0.4, duration: 1.0, ease: [0.16, 1, 0.3, 1] }}
             className="md:col-span-4"
           >
             <StatCard
@@ -366,7 +372,7 @@ export function HeroSection() {
             initial={{ opacity: 0, y: 30 }}
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
-            transition={{ delay: 1.0, duration: 1.0, ease: [0.16, 1, 0.3, 1] }}
+            transition={{ delay: 0.5, duration: 1.0, ease: [0.16, 1, 0.3, 1] }}
             className="md:col-span-4"
           >
             <StatCard

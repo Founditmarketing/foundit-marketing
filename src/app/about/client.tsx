@@ -23,8 +23,7 @@ export default function AboutPage() {
               </span>
             </h1>
             <p className="text-2xl md:text-4xl text-muted-foreground max-w-4xl border-l-[12px] border-primary pl-10 font-medium italic">
-              That number isn't a Silicon Valley valuation—it's cold, hard
-              revenue we've generated for our partners.
+              From our headquarters in Louisiana, we engineer digital empires for clients across the nation. That number isn't a Silicon Valley valuation—it's cold, hard revenue we've generated for our partners.
             </p>
           </div>
           <div className="hidden lg:block lg:col-span-4">

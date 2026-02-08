@@ -11,6 +11,7 @@ import {
   FeasibilityStudyOutputSchema,
   type FeasibilityStudyOutput,
 } from '@/ai/schemas/feasibility-study';
+import { notifyFeasibilitySubmission } from '@/app/actions/forms';
 
 export async function conductFeasibilityStudy(
   input: FeasibilityStudyInput
@@ -51,6 +52,12 @@ const feasibilityStudyFlow = ai.defineFlow(
     if (!output) {
       throw new Error('Failed to generate feasibility study.');
     }
+
+    // Notify Trevor in background
+    void notifyFeasibilitySubmission(input.businessConcept, output.feasibilityScore, output.executiveSummary).catch(err => {
+      console.error('Background feasibility notification failed:', err);
+    });
+
     return output;
   }
 );

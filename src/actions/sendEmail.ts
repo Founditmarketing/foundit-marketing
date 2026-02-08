@@ -3,8 +3,8 @@
 import { Resend } from 'resend';
 
 // Initialize Resend with API Key
-// TODO: Replace with environment variable process.env.RESEND_API_KEY
-const resend = new Resend('re_123456789');
+// Initialize Resend with API Key
+const resend = new Resend(process.env.RESEND_API_KEY);
 
 export async function sendEmail(formData: FormData) {
     const name = formData.get('name') as string;
@@ -16,7 +16,7 @@ export async function sendEmail(formData: FormData) {
 
     try {
         const data = await resend.emails.send({
-            from: 'Found It Marketing <onboarding@resend.dev>',
+            from: 'Found It Marketing <contact@founditmarketing.com>',
             to: ['trevor@founditmarketing.com'], // Replace with client email
             subject: `New Lead: ${name} (${problem})`,
             html: `

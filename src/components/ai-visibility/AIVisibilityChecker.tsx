@@ -61,15 +61,29 @@ export function AIVisibilityChecker() {
 
     // Basic URL cleanup
     let cleanUrl = url.trim();
-    if (cleanUrl && !cleanUrl.startsWith('http')) {
+    if (!cleanUrl) {
+      setLoading(false);
+      setError("Please enter a valid URL.");
+      return;
+    }
+
+    if (!cleanUrl.startsWith('http')) {
       cleanUrl = `https://${cleanUrl}`;
     }
 
     try {
+      console.log('Initiating AI Visibility Check for:', cleanUrl);
       const res = await checkAIVisibility({ url: cleanUrl });
+      console.log('AI Visibility Check Result:', res);
+      if (!res) {
+        throw new Error("No data received from AI service.");
+      }
       setResult(res);
     } catch (err: any) {
-      setError(err.message || 'An unexpected error occurred.');
+      console.error('AI Visibility Check Failed:', err);
+      // Detailed error message for the user
+      const errorMessage = err.message || 'An unexpected error occurred during analysis.';
+      setError(errorMessage);
     } finally {
       setLoading(false);
     }
@@ -94,7 +108,7 @@ export function AIVisibilityChecker() {
             transition={{ duration: 1, ease: [0.16, 1, 0.3, 1] }}
             className="max-w-4xl mx-auto"
           >
-            <div className="bg-card/40 backdrop-blur-3xl border border-border/50 p-12 lg:p-24 rounded-[4rem] shadow-3xl relative overflow-hidden text-center">
+            <div className="bg-card/40 backdrop-blur-3xl border border-border/50 p-6 lg:p-24 rounded-[2.5rem] lg:rounded-[4rem] shadow-3xl relative overflow-hidden text-center">
               <div className="absolute inset-0 bg-gradient-to-br from-primary/5 to-transparent pointer-events-none" />
               <div className="relative z-10">
                 <div className="inline-flex items-center gap-4 bg-primary/10 border border-primary/20 px-6 py-2 rounded-full mb-12">
@@ -110,7 +124,7 @@ export function AIVisibilityChecker() {
                       value={url}
                       onChange={(e) => setUrl(e.target.value)}
                       required
-                      className="h-24 text-3xl font-black uppercase italic tracking-tighter bg-background/50 border-primary/10 focus:border-primary/50 transition-all rounded-[2rem] text-center placeholder:text-muted-foreground/30 px-10 shadow-inner"
+                      className="h-16 lg:h-24 text-xl lg:text-3xl font-black uppercase italic tracking-tighter bg-background/50 border-primary/10 focus:border-primary/50 transition-all rounded-[1.5rem] lg:rounded-[2rem] text-center placeholder:text-muted-foreground/30 px-6 lg:px-10 shadow-inner"
                     />
                     <div className="absolute -inset-1 bg-gradient-to-r from-primary/20 to-transparent rounded-[2.2rem] opacity-0 group-focus-within:opacity-100 transition-opacity blur-lg pointer-events-none" />
                   </div>
@@ -118,10 +132,10 @@ export function AIVisibilityChecker() {
                   <Button
                     type="submit"
                     disabled={loading}
-                    className="bg-primary text-primary-foreground font-black h-24 px-16 uppercase italic tracking-tighter text-3xl rounded-[2rem] shadow-2xl shadow-primary/30 hover:scale-[1.05] transition-all magnetic"
+                    className="bg-primary text-primary-foreground font-black h-16 lg:h-24 px-10 lg:px-16 uppercase italic tracking-tighter text-xl lg:text-3xl rounded-[1.5rem] lg:rounded-[2rem] shadow-2xl shadow-primary/30 hover:scale-[1.05] transition-all magnetic"
                   >
                     Initiate Scan
-                    <ChevronRight className="ml-4 w-10 h-10" strokeWidth={3} />
+                    <ChevronRight className="ml-2 lg:ml-4 w-6 h-6 lg:w-10 lg:h-10" strokeWidth={3} />
                   </Button>
                 </form>
 
@@ -140,7 +154,7 @@ export function AIVisibilityChecker() {
             animate={{ opacity: 1, filter: 'blur(0px)' }}
             exit={{ opacity: 0, filter: 'blur(20px)' }}
             transition={{ duration: 0.8, ease: [0.16, 1, 0.3, 1] }}
-            className="relative bg-black rounded-[4rem] border border-primary/20 p-24 overflow-hidden min-h-[600px] flex flex-col items-center justify-center text-center shadow-[0_0_100px_rgba(249,115,22,0.1)]"
+            className="relative bg-black rounded-[2.5rem] lg:rounded-[4rem] border border-primary/20 p-12 lg:p-24 overflow-hidden min-h-[400px] lg:min-h-[600px] flex flex-col items-center justify-center text-center shadow-[0_0_100px_rgba(249,115,22,0.1)]"
           >
             {/* Background Data Stream Effect */}
             <div className="absolute inset-0 opacity-20 pointer-events-none font-mono text-[12px] leading-tight text-primary/50 overflow-hidden select-none">
@@ -167,7 +181,7 @@ export function AIVisibilityChecker() {
                 <Loader2 className="h-32 w-32 text-primary animate-spin" strokeWidth={0.5} />
                 <Activity className="absolute inset-0 m-auto h-12 w-12 text-primary/50 animate-pulse" />
               </div>
-              <h3 className="text-5xl lg:text-7xl font-black text-white uppercase italic tracking-tighter mb-8 leading-none">
+              <h3 className="text-3xl lg:text-7xl font-black text-white uppercase italic tracking-tighter mb-4 lg:mb-8 leading-none">
                 Analyzing<br />Authority Nodes
               </h3>
               <div className="flex items-center gap-6 text-primary font-mono text-sm tracking-[0.4em] bg-primary/10 border border-primary/20 px-8 py-4 rounded-full uppercase font-black">
@@ -188,7 +202,7 @@ export function AIVisibilityChecker() {
               initial={{ opacity: 0, y: 60, scale: 0.98, filter: 'blur(20px)' }}
               animate={{ opacity: 1, y: 0, scale: 1, filter: 'blur(0px)' }}
               transition={{ duration: 1.2, ease: [0.16, 1, 0.3, 1] }}
-              className="bg-card/40 backdrop-blur-2xl border border-border/50 rounded-[4rem] p-12 lg:p-24 shadow-3xl relative overflow-hidden"
+              className="bg-card/40 backdrop-blur-2xl border border-border/50 rounded-[2.5rem] lg:rounded-[4rem] p-6 lg:p-24 shadow-3xl relative overflow-hidden"
             >
               <div className="absolute top-0 right-0 p-12 opacity-[0.03]">
                 <Zap className="w-96 h-96 text-primary" strokeWidth={1} />
@@ -305,14 +319,14 @@ export function AIVisibilityChecker() {
             key="error"
             initial={{ opacity: 0, scale: 0.9 }}
             animate={{ opacity: 1, scale: 1 }}
-            className="text-center bg-red-900/5 backdrop-blur-3xl p-24 rounded-[4rem] border-2 border-destructive/20 max-w-4xl mx-auto shadow-3xl"
+            className="text-center bg-red-900/5 backdrop-blur-3xl p-12 lg:p-24 rounded-[2.5rem] lg:rounded-[4rem] border-2 border-destructive/20 max-w-4xl mx-auto shadow-3xl"
           >
-            <div className="p-8 bg-destructive/10 rounded-full w-fit mx-auto mb-10">
-              <ServerCrash className="h-20 w-20 text-destructive" strokeWidth={1} />
+            <div className="p-6 lg:p-8 bg-destructive/10 rounded-full w-fit mx-auto mb-6 lg:mb-10">
+              <ServerCrash className="h-12 w-12 lg:h-20 lg:w-20 text-destructive" strokeWidth={1} />
             </div>
-            <h3 className="text-5xl lg:text-7xl font-black text-white italic uppercase tracking-tighter mb-8 leading-none">Uplink<br />Interrupted</h3>
-            <p className="text-red-300 font-mono text-xl mb-12 uppercase tracking-widest">{error}</p>
-            <Button onClick={handleReset} variant="destructive" className="h-24 px-16 rounded-[2rem] font-black italic uppercase tracking-tighter text-3xl shadow-2xl shadow-destructive/20 active:scale-95 transition-all">
+            <h3 className="text-3xl lg:text-7xl font-black text-white italic uppercase tracking-tighter mb-4 lg:mb-8 leading-none">Uplink<br />Interrupted</h3>
+            <p className="text-red-300 font-mono text-sm lg:text-xl mb-8 lg:mb-12 uppercase tracking-widest px-4">{error}</p>
+            <Button onClick={handleReset} variant="destructive" className="h-16 lg:h-24 px-8 lg:px-16 rounded-[1.5rem] lg:rounded-[2rem] font-black italic uppercase tracking-tighter text-xl lg:text-3xl shadow-2xl shadow-destructive/20 active:scale-95 transition-all">
               Re-Establish Connection
             </Button>
           </motion.div>

@@ -8,6 +8,7 @@ import { Suspense } from 'react';
 import { ScrollReveal } from '@/components/ui/ScrollReveal';
 import { LiquidButton } from '@/components/ui/LiquidButton';
 import { Metadata } from 'next';
+import { LocalBusinessSchema } from '@/components/seo/LocalBusinessSchema';
 
 export const metadata: Metadata = {
   title: 'Digital Empire Building | Found It Marketing',
@@ -17,6 +18,7 @@ export const metadata: Metadata = {
 export default function Home() {
   return (
     <main>
+      <LocalBusinessSchema />
       <HeroSection />
 
       <ScrollReveal delay={0.1}>

@@ -22,6 +22,7 @@ export async function checkAIVisibility(
 
 const prompt = ai.definePrompt({
   name: 'aiVisibilityPrompt',
+  model: 'googleai/gemini-1.5-flash',
   input: { schema: AIVisibilityInputSchema },
   output: { schema: AIVisibilityOutputSchema },
   prompt: `
@@ -43,6 +44,9 @@ URL to analyze: {{{url}}}
 `,
 });
 
+// Set max execution time to 60 seconds (Commented out as invalid in Server Action file)
+// export const maxDuration = 60;
+
 const aiVisibilityFlow = ai.defineFlow(
   {
     name: 'aiVisibilityFlow',
@@ -50,16 +54,22 @@ const aiVisibilityFlow = ai.defineFlow(
     outputSchema: AIVisibilityOutputSchema,
   },
   async (input) => {
-    const { output } = await prompt(input);
-    if (!output) {
-      throw new Error('Failed to generate AI visibility analysis.');
+    try {
+      const { output } = await prompt(input);
+      if (!output) {
+        throw new Error('AI generated empty output');
+      }
+
+      // Notify Trevor of the lead in the background
+      // Use void to not block the return and ignore errors in notification
+      void notifyAISubmission(input.url, output.score, output.summary).catch(err => {
+        console.error('Background AI notification failed:', err);
+      });
+
+      return output;
+    } catch (error: any) {
+      console.error('AI Flow Error:', error);
+      throw new Error(`AI Analysis Failed: ${error.message}`);
     }
-
-    // Notify Trevor of the lead in the background
-    notifyAISubmission(input.url, output.score, output.summary).catch(err => {
-      console.error('Background AI notification failed:', err);
-    });
-
-    return output;
   }
 );

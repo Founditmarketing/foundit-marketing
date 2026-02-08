@@ -13,6 +13,8 @@ import {
   type SolutionStrategyOutput,
 } from '@/ai/schemas/solution-strategist';
 
+import { notifySolutionSubmission } from '@/app/actions/forms';
+
 export async function getSolutionStrategy(
   input: SolutionStrategyInput
 ): Promise<SolutionStrategyOutput> {
@@ -51,10 +53,26 @@ const solutionStrategyFlow = ai.defineFlow(
     outputSchema: SolutionStrategyOutputSchema,
   },
   async (input) => {
-    const { output } = await prompt(input);
-    if (!output) {
-      throw new Error('Failed to generate a strategy.');
+    if (!process.env.GOOGLE_GENAI_API_KEY) {
+      console.error('Critical Error: GOOGLE_GENAI_API_KEY is not set in environment variables.');
+      throw new Error('Server usage error: API Key missing. Please set GOOGLE_GENAI_API_KEY in Vercel.');
     }
-    return output;
+
+    try {
+      const { output } = await prompt(input);
+      if (!output) {
+        throw new Error('Failed to generate a strategy.');
+      }
+
+      // Notify Trevor in background
+      void notifySolutionSubmission(input.businessName, input.industry, output.executiveSummary).catch(err => {
+        console.error('Background strategy notification failed:', err);
+      });
+
+      return output;
+    } catch (error: any) {
+      console.error('Genkit Error:', error);
+      throw new Error(`AI Strategy Generation Failed: ${error.message}`);
+    }
   }
 );

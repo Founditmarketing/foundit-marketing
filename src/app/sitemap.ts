@@ -14,6 +14,9 @@ export default function sitemap(): MetadataRoute.Sitemap {
         '/solutions',
         '/feasibility-study',
         '/ai-visibility-check',
+        '/marketing-alexandria',
+        '/pineville-seo',
+        '/central-louisiana-web-design',
     ].map((route) => ({
         url: `${baseUrl}${route}`,
         lastModified: new Date(),

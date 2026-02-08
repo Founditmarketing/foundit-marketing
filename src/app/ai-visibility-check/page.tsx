@@ -6,8 +6,22 @@ import { Metadata } from 'next';
 
 export const metadata: Metadata = {
   title: 'Free AI Visibility Check | See How AI Sees You',
-  description: "Is your brand invisible to ChatGPT and Gemini? Get a free 30-second audit to see if you exist in the AI Knowledge Graph.",
+  description: "Is your brand invisible to ChatGPT and Gemini? Get a free 30-second audit to see if you exist in the AI Knowledge Graph. Empowering Louisiana brands for AI search.",
+  keywords: [
+    'AI Visibility Check',
+    'ChatGPT Optimization',
+    'Gemini SEO',
+    'AI Search Audit',
+    'Generative Engine Optimization Louisiana',
+    'GEO Check'
+  ],
+  other: {
+    'geo.region': 'US-LA',
+    'geo.placename': 'Alexandria',
+  }
 };
+
+export const maxDuration = 60;
 
 export default function AIVisibilityCheckPage() {
   return (

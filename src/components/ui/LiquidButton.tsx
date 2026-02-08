@@ -1,21 +1,21 @@
-'use client';
+"use client";
 
 import React, { useRef, useState, useEffect } from 'react';
 import { motion } from 'framer-motion';
 import { cn } from '@/lib/utils';
 
-const MotionButton = motion.button as any;
+const MotionDiv = motion.div as any;
 
-interface LiquidButtonProps extends React.ButtonHTMLAttributes<HTMLButtonElement> {
+interface LiquidButtonProps extends React.HTMLAttributes<HTMLDivElement> {
     children: React.ReactNode;
 }
 
 export function LiquidButton({ children, className, ...props }: LiquidButtonProps) {
     const [position, setPosition] = useState({ x: 0, y: 0 });
     const [isHovered, setIsHovered] = useState(false);
-    const buttonRef = useRef<HTMLButtonElement>(null);
+    const buttonRef = useRef<HTMLDivElement>(null);
 
-    const handleMouseMove = (e: React.MouseEvent<HTMLButtonElement>) => {
+    const handleMouseMove = (e: React.MouseEvent<HTMLDivElement>) => {
         if (!buttonRef.current) return;
         const rect = buttonRef.current.getBoundingClientRect();
         setPosition({
@@ -25,7 +25,7 @@ export function LiquidButton({ children, className, ...props }: LiquidButtonProp
     };
 
     return (
-        <MotionButton
+        <MotionDiv
             ref={buttonRef}
             onMouseMove={handleMouseMove}
             onMouseEnter={() => setIsHovered(true)}
@@ -33,7 +33,7 @@ export function LiquidButton({ children, className, ...props }: LiquidButtonProp
             whileHover={{ scale: 1.02 }}
             whileTap={{ scale: 0.98 }}
             className={cn(
-                "relative overflow-hidden group px-8 py-4 bg-transparent border-2 border-primary text-primary font-black uppercase italic tracking-tighter rounded-2xl transition-all duration-300 shadow-lg hover:shadow-primary/30 magnetic",
+                "relative overflow-hidden group px-8 py-4 bg-transparent border-2 border-primary text-primary font-black uppercase italic tracking-tighter rounded-2xl transition-all duration-300 shadow-lg hover:shadow-primary/30 magnetic cursor-pointer flex items-center justify-center",
                 isHovered && "text-primary-foreground",
                 className
             )}
@@ -57,6 +57,6 @@ export function LiquidButton({ children, className, ...props }: LiquidButtonProp
                     mass: 0.5
                 }}
             />
-        </MotionButton>
+        </MotionDiv>
     );
 }

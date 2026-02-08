@@ -132,7 +132,7 @@ export function ContactSection() {
   }
 
   return (
-    <section className="bg-background text-foreground py-24 lg:py-48 relative overflow-hidden">
+    <section className="bg-background text-foreground py-12 lg:py-48 relative overflow-hidden">
       <div className="hidden lg:block absolute inset-0 z-0 opacity-100">
         <NeuralNetworkBackground />
       </div>
@@ -149,7 +149,7 @@ export function ContactSection() {
             <h1 className="text-oversized leading-none mb-8">
               <TextScramble text={title} />
             </h1>
-            <p className="text-2xl md:text-3xl text-muted-foreground max-w-4xl border-l-[12px] border-primary pl-10 font-medium italic">
+            <p className="text-xl md:text-3xl text-muted-foreground max-w-4xl border-l-[6px] lg:border-l-[12px] border-primary pl-6 lg:pl-10 font-medium italic">
               {description}
             </p>
           </motion.div>
@@ -186,7 +186,8 @@ export function ContactSection() {
           </motion.div>
 
           <motion.div variants={itemVariants} className="lg:col-span-7">
-            <div className="bg-card/40 backdrop-blur-2xl border border-border/50 rounded-[4rem] p-10 lg:p-20 shadow-3xl min-h-[600px] flex items-center justify-center relative overflow-hidden">
+            <div className="bg-card/40 backdrop-blur-2xl border border-border/50 rounded-[1.5rem] lg:rounded-[4rem] p-4 lg:p-20 shadow-3xl min-h-[500px] lg:min-h-[600px] flex items-center justify-center relative overflow-hidden">
+
               <div className="absolute inset-0 bg-gradient-to-br from-primary/[0.02] to-transparent pointer-events-none" />
               {submitted ? (
                 <div className="text-center animate-in fade-in-50 duration-1000 slide-in-from-bottom-10">
@@ -204,24 +205,25 @@ export function ContactSection() {
               ) : (
                 <form onSubmit={handleSubmit} className="space-y-10 w-full relative z-10">
                   <input type="hidden" name="problem" value={problem} />
-                  <div className="grid grid-cols-1 sm:grid-cols-2 gap-10">
+                  <div className="grid grid-cols-1 sm:grid-cols-2 gap-6 lg:gap-10">
+
                     <div className="space-y-4">
                       <Label htmlFor="name" className="text-foreground font-black uppercase tracking-[0.3em] text-[10px] opacity-60">Identity</Label>
-                      <Input id="name" name="name" placeholder="John Doe" required className="bg-background/40 border-border/40 h-16 rounded-2xl focus:ring-4 focus:ring-primary/10 focus:border-primary/50 transition-all text-lg font-medium" />
+                      <Input id="name" name="name" placeholder="John Doe" required className="bg-background/40 border-border/40 h-14 lg:h-16 rounded-2xl focus:ring-4 focus:ring-primary/10 focus:border-primary/50 transition-all text-base lg:text-lg font-medium" />
                     </div>
                     <div className="space-y-4">
                       <Label htmlFor="email" className="text-foreground font-black uppercase tracking-[0.3em] text-[10px] opacity-60">Uplink Address</Label>
-                      <Input id="email" name="email" type="email" placeholder="you@company.com" required className="bg-background/40 border-border/40 h-16 rounded-2xl focus:ring-4 focus:ring-primary/10 focus:border-primary/50 transition-all text-lg font-medium" />
+                      <Input id="email" name="email" type="email" placeholder="you@company.com" required className="bg-background/40 border-border/40 h-14 lg:h-16 rounded-2xl focus:ring-4 focus:ring-primary/10 focus:border-primary/50 transition-all text-base lg:text-lg font-medium" />
                     </div>
                   </div>
                   <div className="space-y-4">
                     <Label htmlFor="website" className="text-foreground font-black uppercase tracking-[0.3em] text-[10px] opacity-60">Digital Domain</Label>
-                    <Input id="website" name="website" placeholder="https://yourcompany.com" required className="bg-background/40 border-border/40 h-16 rounded-2xl focus:ring-4 focus:ring-primary/10 focus:border-primary/50 transition-all text-lg font-medium" />
+                    <Input id="website" name="website" placeholder="https://yourcompany.com" required className="bg-background/40 border-border/40 h-14 lg:h-16 rounded-2xl focus:ring-4 focus:ring-primary/10 focus:border-primary/50 transition-all text-base lg:text-lg font-medium" />
                   </div>
                   <div className="space-y-4">
                     <Label htmlFor="revenue" className="text-foreground font-black uppercase tracking-[0.3em] text-[10px] opacity-60">Velocity (Annual Revenue)</Label>
                     <Select onValueChange={handleRevenueChange} value={revenue}>
-                      <SelectTrigger id="revenue" className="w-full bg-background/40 border-border/40 h-16 rounded-2xl focus:ring-4 focus:ring-primary/10 focus:border-primary/50 transition-all text-lg font-medium">
+                      <SelectTrigger id="revenue" className="w-full bg-background/40 border-border/40 h-14 lg:h-16 rounded-2xl focus:ring-4 focus:ring-primary/10 focus:border-primary/50 transition-all text-base lg:text-lg font-medium">
                         <SelectValue placeholder="Select revenue" />
                       </SelectTrigger>
                       <SelectContent className="bg-card border-border/50 rounded-2xl p-2 backdrop-blur-3xl">
@@ -238,14 +240,15 @@ export function ContactSection() {
                   <div className="space-y-4">
                     <Label htmlFor="message" className="text-foreground font-black uppercase tracking-[0.3em] text-[10px] opacity-60">Operational Obstacles</Label>
                     <div className="relative">
-                      <Textarea id="message" name="message" placeholder="Describe your challenge..." rows={4} required className="bg-background/40 border-border/40 rounded-3xl focus:ring-4 focus:ring-primary/10 focus:border-primary/50 transition-all text-lg font-medium p-6" />
+                      <Textarea id="message" name="message" placeholder="Describe your challenge..." rows={4} required className="bg-background/40 border-border/40 rounded-3xl focus:ring-4 focus:ring-primary/10 focus:border-primary/50 transition-all text-base lg:text-lg font-medium p-3 lg:p-6" />
                     </div>
                   </div>
-                  <div className="pt-6">
+                  <div className="pt-4 lg:pt-6">
+
                     <Button
                       type="submit"
                       disabled={loading}
-                      className="w-full bg-primary text-primary-foreground font-black h-24 px-12 uppercase italic tracking-tighter text-2xl rounded-[2rem] shadow-3xl shadow-primary/40 hover:scale-[1.01] active:scale-[0.98] transition-all duration-700 ease-liquid magnetic"
+                      className="w-full bg-primary text-primary-foreground font-black h-20 lg:h-24 px-12 uppercase italic tracking-tighter text-xl lg:text-2xl rounded-[2rem] shadow-3xl shadow-primary/40 hover:scale-[1.01] active:scale-[0.98] transition-all duration-700 ease-liquid magnetic"
                     >
                       {loading ? (
                         <div className="flex items-center gap-4">

@@ -170,8 +170,9 @@ export function Header() {
                     </Link>
                   </SheetTitle>
                 </SheetHeader>
-                <div className="flex-1 overflow-y-auto p-4">
-                  <div className="flex flex-col gap-4">
+                <div className="flex-1 overflow-y-auto p-4 flex flex-col justify-center text-center">
+                  <div className="flex flex-col gap-6 items-center">
+
                     {navLinks.map((link) => (
                       <div key={link.title}>
                         {link.sublinks ? (
@@ -179,7 +180,8 @@ export function Header() {
                             <h4 className="font-bold mb-2 text-base">
                               {link.title}
                             </h4>
-                            <div className="flex flex-col gap-1 pl-4 border-l">
+                            <div className="flex flex-col gap-2 pl-0 border-l-0 items-center">
+
                               {link.sublinks.map((sublink) => (
                                 <Link
                                   key={sublink.title}

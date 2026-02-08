@@ -61,7 +61,7 @@ export function Footer() {
         </motion.div>
 
         <div className="grid grid-cols-1 md:grid-cols-12 gap-24 pb-32">
-          <div className="md:col-span-12 lg:col-span-4">
+          <div className="md:col-span-12 lg:col-span-3">
             <Link
               href="/"
               className="font-black text-6xl tracking-tighter text-foreground group inline-block transition-transform hover:scale-105"
@@ -73,7 +73,7 @@ export function Footer() {
             </p>
           </div>
 
-          <div className="md:col-span-12 lg:col-span-4 grid grid-cols-2 gap-16">
+          <div className="md:col-span-12 lg:col-span-6 grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-10">
             <div className="space-y-10">
               <h4 className="font-black text-xs uppercase tracking-[0.5em] text-primary opacity-50 italic">Strategic Lab</h4>
               <ul className="space-y-6">
@@ -90,9 +90,17 @@ export function Footer() {
                 <li><Link href="/about" className="text-2xl font-black hover:text-primary transition-all italic tracking-tighter uppercase hover:translate-x-2 inline-block">Philosophy</Link></li>
               </ul>
             </div>
+            <div className="space-y-10">
+              <h4 className="font-black text-xs uppercase tracking-[0.5em] text-primary opacity-50 italic">Local Presence</h4>
+              <ul className="space-y-6">
+                <li><Link href="/marketing-alexandria" className="text-2xl font-black hover:text-primary transition-all italic tracking-tighter uppercase hover:translate-x-2 inline-block">Alexandria</Link></li>
+                <li><Link href="/pineville-seo" className="text-2xl font-black hover:text-primary transition-all italic tracking-tighter uppercase hover:translate-x-2 inline-block">Pineville</Link></li>
+                <li><Link href="/central-louisiana-web-design" className="text-2xl font-black hover:text-primary transition-all italic tracking-tighter uppercase hover:translate-x-2 inline-block">Cenla Design</Link></li>
+              </ul>
+            </div>
           </div>
 
-          <div className="md:col-span-12 lg:col-span-4 flex flex-col lg:items-end">
+          <div className="md:col-span-12 lg:col-span-3 flex flex-col lg:items-end">
             <h4 className="font-black text-xs uppercase tracking-[0.5em] text-primary mb-12 opacity-50 italic">Global Headquarters</h4>
             <div className="space-y-10 flex flex-col items-start lg:items-end">
               <a href={mounted ? phoneHref : '#'} className="flex items-center gap-8 text-foreground hover:text-primary transition-all group p-4 border border-transparent hover:border-primary/20 rounded-[2rem] hover:bg-primary/5">

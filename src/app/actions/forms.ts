@@ -40,12 +40,34 @@ export async function submitContactForm(formData: FormData) {
 }
 
 export async function notifyAISubmission(url: string, score: number, summary: string) {
-    // Placeholder to prevent breaking imports using this
+    // Lead from AI Visibility Check
     const formData = new FormData();
-    formData.append('name', 'AI System');
-    formData.append('email', 'ai@system.local');
+    formData.append('name', 'AI Visibility Lead');
+    formData.append('email', 'ai-visibility@founditmarketing.com');
     formData.append('problem', 'AI Scan Completed');
-    formData.append('message', `Scan for ${url} completed with score ${score}`);
+    formData.append('message', `Target URL: ${url}\nVisibility Score: ${score}\n\nSummary:\n${summary}`);
+
+    await sendEmail(formData);
+}
+
+export async function notifySolutionSubmission(businessName: string, industry: string, summary: string) {
+    // Lead from Solution Strategist
+    const formData = new FormData();
+    formData.append('name', 'Solution Strategist Lead');
+    formData.append('email', 'strategist@founditmarketing.com');
+    formData.append('problem', 'Strategy Generated');
+    formData.append('message', `Business: ${businessName}\nIndustry: ${industry}\n\nAI Summary:\n${summary}`);
+
+    await sendEmail(formData);
+}
+
+export async function notifyFeasibilitySubmission(concept: string, score: number, summary: string) {
+    // Lead from Feasibility Study
+    const formData = new FormData();
+    formData.append('name', 'Feasibility Study Lead');
+    formData.append('email', 'feasibility@founditmarketing.com');
+    formData.append('problem', 'Feasibility Study Completed');
+    formData.append('message', `Business Concept: ${concept}\nFeasibility Score: ${score}\n\nSummary:\n${summary}`);
 
     await sendEmail(formData);
 }

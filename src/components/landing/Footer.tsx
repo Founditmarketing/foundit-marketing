@@ -133,8 +133,8 @@ export function Footer() {
               POWERED BY GEMINI PRO 1.5.
             </Link>
           </p>
-          <p className="text-muted-foreground font-mono text-[10px] uppercase tracking-[0.6em]">
-            <Link href="/privacy-policy" className="hover:text-primary transition-colors">
+          <p className="text-muted-foreground font-mono text-[10px] uppercase tracking-[0.6em] opacity-100">
+            <Link href="/privacy-policy" className="text-primary/80 hover:text-primary hover:tracking-[0.8em] transition-all duration-500 font-black">
               PRIVACY POLICY
             </Link>
           </p>

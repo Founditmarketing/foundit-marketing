@@ -1,0 +1,84 @@
+import { blogPosts } from '@/lib/blog-posts';
+import Image from 'next/image';
+import Link from 'next/link';
+import { notFound } from 'next/navigation';
+import { ClientSideFormattedDate } from '@/components/blog/ClientSideFormattedDate';
+
+export default function PostPage({ params }: { params: { slug: string } }) {
+  const post = blogPosts.find((p) => p.slug === params.slug);
+
+  if (!post) {
+    notFound();
+  }
+
+  const relatedPosts = blogPosts.filter((p) => p.slug !== params.slug).slice(0, 2);
+
+  return (
+    <main className="bg-background text-foreground py-24 lg:py-32">
+        <div className="max-w-3xl mx-auto px-6">
+            <header className="mb-12 text-center">
+                <Link href="/blog" className="text-primary hover:underline font-bold mb-6 inline-block">&larr; All Articles</Link>
+              <h1 className="text-4xl lg:text-6xl font-black text-foreground leading-tight mb-6">
+                {post.title}
+              </h1>
+              <time dateTime={post.date} className="text-muted-foreground"><ClientSideFormattedDate dateString={post.date} /></time>
+            </header>
+        </div>
+
+      <div className="max-w-5xl mx-auto px-6 mb-12">
+        <Image
+          src={post.image}
+          alt={post.title}
+          width={1200}
+          height={600}
+          className="w-full h-auto rounded-3xl aspect-[16/8] object-cover"
+          data-ai-hint="abstract digital"
+          priority
+        />
+      </div>
+
+      <article className="max-w-3xl mx-auto px-6">
+        <div
+          className="prose dark:prose-invert prose-lg max-w-none mx-auto"
+          dangerouslySetInnerHTML={{ __html: post.content }}
+        />
+      </article>
+
+      {relatedPosts.length > 0 && (
+        <aside className="mt-24 border-t border-border pt-16">
+          <div className="max-w-5xl mx-auto px-6">
+            <h2 className="text-3xl font-black text-primary mb-12 text-center uppercase tracking-tighter italic">
+              Keep Reading
+            </h2>
+            <div className="grid grid-cols-1 sm:grid-cols-2 gap-8">
+              {relatedPosts.map((relatedPost) => (
+                <Link key={relatedPost.slug} href={`/blog/${relatedPost.slug}`} className="block group">
+                  <div className="bg-card border rounded-3xl overflow-hidden h-full flex flex-col hover:border-primary/50 transition-all duration-300 shadow-sm hover:shadow-lg">
+                    <Image
+                      src={relatedPost.image}
+                      alt={relatedPost.title}
+                      width={600}
+                      height={300}
+                      className="w-full h-48 object-cover group-hover:scale-105 transition-transform duration-500"
+                      data-ai-hint="abstract digital"
+                    />
+                    <div className="p-6 flex flex-col flex-grow">
+                      <h3 className="text-xl font-bold text-card-foreground mb-2 group-hover:text-primary transition-colors flex-grow">{relatedPost.title}</h3>
+                      <p className="text-sm text-muted-foreground mt-4 pt-4 border-t line-clamp-3">{relatedPost.excerpt}</p>
+                    </div>
+                  </div>
+                </Link>
+              ))}
+            </div>
+          </div>
+        </aside>
+      )}
+    </main>
+  );
+}
+
+export async function generateStaticParams() {
+  return blogPosts.map((post) => ({
+    slug: post.slug,
+  }));
+}

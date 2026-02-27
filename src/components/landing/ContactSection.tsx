@@ -188,7 +188,7 @@ export function ContactSection() {
           </motion.div>
 
           <motion.div variants={itemVariants} className="lg:col-span-7">
-            <div className="bg-card/40 backdrop-blur-2xl border border-border/50 rounded-[1.5rem] lg:rounded-[4rem] p-4 lg:p-20 shadow-3xl min-h-[500px] lg:min-h-[600px] flex items-center justify-center relative overflow-hidden">
+            <div className="bg-card/40 backdrop-blur-2xl border border-border/50 rounded-[1.5rem] lg:rounded-[4rem] p-6 lg:p-20 shadow-3xl min-h-[500px] lg:min-h-[600px] flex items-center justify-center relative overflow-hidden">
 
               <div className="absolute inset-0 bg-gradient-to-br from-primary/[0.02] to-transparent pointer-events-none" />
               {submitted ? (
@@ -250,11 +250,11 @@ export function ContactSection() {
                     <Button
                       type="submit"
                       disabled={loading}
-                      className="w-full bg-primary text-primary-foreground font-black h-20 lg:h-24 px-12 uppercase italic tracking-tighter text-xl lg:text-2xl rounded-[2rem] shadow-3xl shadow-primary/40 hover:scale-[1.01] active:scale-[0.98] transition-all duration-700 ease-liquid magnetic"
+                      className="w-full bg-primary text-primary-foreground font-black h-16 sm:h-20 lg:h-24 px-4 sm:px-12 uppercase italic tracking-tighter text-lg sm:text-xl lg:text-2xl rounded-2xl lg:rounded-[2rem] shadow-3xl shadow-primary/40 hover:scale-[1.01] active:scale-[0.98] transition-all duration-700 ease-liquid magnetic whitespace-normal sm:whitespace-nowrap"
                     >
                       {loading ? (
-                        <div className="flex items-center gap-4">
-                          <Loader2 className="h-8 w-8 animate-spin" strokeWidth={3} />
+                        <div className="flex items-center gap-2 sm:gap-4">
+                          <Loader2 className="h-6 w-6 sm:h-8 sm:w-8 animate-spin" strokeWidth={3} />
                           <span>Processing...</span>
                         </div>
                       ) : (

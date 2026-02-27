@@ -127,22 +127,22 @@ export function GeoSimulatorSection() {
             <p className="text-foreground/80 font-mono text-xs leading-relaxed pt-1.5 italic uppercase tracking-widest">{question}</p>
           </div>
 
-          <div className="flex items-start gap-6">
-            <div className="w-12 h-12 rounded-2xl bg-primary/10 flex items-center justify-center shrink-0 border-2 border-primary/30 shadow-[0_0_30px_rgba(249,115,22,0.2)]">
+          <div className="flex flex-col sm:flex-row items-start gap-4 sm:gap-6 w-full">
+            <div className="hidden sm:flex w-12 h-12 rounded-2xl bg-primary/10 items-center justify-center shrink-0 border-2 border-primary/30 shadow-[0_0_30px_rgba(249,115,22,0.2)]">
               <Sparkles className="w-6 h-6 text-primary animate-pulse" />
             </div>
-            <div className="flex-1 space-y-6">
-              <div className="bg-background/80 p-6 rounded-3xl border-l-4 border-primary shadow-2xl backdrop-blur-xl">
-                <p className="text-foreground leading-relaxed text-lg font-medium italic uppercase tracking-tight opacity-90">{result.summary}</p>
+            <div className="flex-1 space-y-6 min-w-0 w-full">
+              <div className="bg-background/80 p-4 sm:p-6 rounded-3xl border-l-4 border-primary shadow-2xl backdrop-blur-xl">
+                <p className="text-foreground leading-relaxed text-base sm:text-lg font-medium italic uppercase tracking-tight opacity-90 break-words">{result.summary}</p>
               </div>
 
-              <div className="bg-primary/5 border-2 border-primary/10 rounded-3xl p-6 shadow-2xl relative overflow-hidden group">
+              <div className="bg-primary/5 border-2 border-primary/10 rounded-3xl p-4 sm:p-6 shadow-2xl relative overflow-hidden group">
                 <div className="absolute inset-0 bg-gradient-to-br from-primary/5 to-transparent pointer-events-none" />
                 <p className="font-black text-primary text-[10px] uppercase tracking-[0.4em] mb-4 flex items-center gap-3">
-                  <span className="w-2 h-2 rounded-full bg-primary animate-ping" />
+                  <span className="w-2 h-2 rounded-full bg-primary animate-ping shrink-0" />
                   Strategic Directive:
                 </p>
-                <p className="text-foreground text-xl font-black leading-tight uppercase tracking-tight italic relative z-10">
+                <p className="text-foreground text-lg sm:text-xl font-black leading-tight uppercase tracking-tight italic relative z-10 break-words">
                   {result.recommendation}
                 </p>
                 <div className='flex flex-col sm:flex-row sm:items-center sm:justify-between mt-8 pt-6 border-t border-primary/10 relative z-10 gap-4'>

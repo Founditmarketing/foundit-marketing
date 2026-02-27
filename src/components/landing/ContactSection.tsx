@@ -134,7 +134,7 @@ export function ContactSection() {
   }
 
   return (
-    <section className="bg-background text-foreground py-12 lg:py-48 relative overflow-hidden">
+    <section className="bg-background text-foreground pt-32 pb-12 lg:py-48 relative overflow-hidden">
       <div className="hidden lg:block absolute inset-0 z-0 opacity-100">
         <NeuralNetworkBackground />
       </div>

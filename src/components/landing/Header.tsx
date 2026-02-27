@@ -18,7 +18,7 @@ import { cn } from '@/lib/utils';
 import { ChevronDown, Menu, Phone } from 'lucide-react';
 import Link from 'next/link';
 import * as React from 'react';
-import { useRouter } from 'next/navigation';
+import { useRouter, usePathname } from 'next/navigation';
 import { ThemeSwitcher } from '../ThemeSwitcher';
 import { LiquidButton } from '@/components/ui/LiquidButton';
 import { motion } from 'framer-motion';
@@ -66,6 +66,8 @@ export function Header() {
   const [mounted, setMounted] = React.useState(false);
   const [isScrolled, setIsScrolled] = React.useState(false);
   const router = useRouter();
+  const pathname = usePathname();
+  const isHomePage = pathname === '/';
   const timerRef = React.useRef<NodeJS.Timeout | null>(null);
 
   const handlePressStart = () => {
@@ -99,17 +101,20 @@ export function Header() {
       animate={{ y: 0, opacity: 1 }}
       transition={{ delay: 2.4, duration: 1.0, ease: [0.16, 1, 0.3, 1] }}
       className={cn(
-        'sticky top-0 z-50 w-full transition-all duration-700 ease-liquid',
+        'fixed inset-x-0 top-0 z-50 w-full transition-all duration-700 ease-liquid',
         isScrolled
-          ? 'h-16 lg:h-20 bg-background/60 backdrop-blur-2xl border-b border-border/40 shadow-xl shadow-black/5'
-          : 'h-20 lg:h-24 bg-background/0 backdrop-blur-none border-b border-transparent shadow-none'
+          ? isHomePage ? 'h-16 lg:h-20 bg-black' : 'h-16 lg:h-20 bg-background/80 backdrop-blur-xl border-b'
+          : 'h-20 lg:h-24 bg-transparent'
       )}
     >
       <div className="max-w-[1440px] mx-auto px-6 h-full">
         <div className="flex items-center justify-between h-full">
           <Link
             href="/"
-            className="font-black text-3xl tracking-tighter text-foreground group relative select-none"
+            className={cn(
+              "font-black text-3xl tracking-tighter group relative select-none",
+              isHomePage ? "text-white" : "text-foreground"
+            )}
             onMouseDown={handlePressStart}
             onMouseUp={handlePressEnd}
             onMouseLeave={handlePressEnd}
@@ -130,7 +135,10 @@ export function Header() {
                   <DropdownMenuTrigger asChild>
                     <Button
                       variant="ghost"
-                      className="flex items-center gap-1 font-black uppercase italic tracking-tighter text-sm hover:text-primary hover:bg-transparent transition-colors group relative"
+                      className={cn(
+                        "flex items-center gap-1 font-black uppercase italic tracking-tighter text-sm transition-colors group relative",
+                        isHomePage ? "text-white hover:text-white hover:bg-white/10" : "text-foreground hover:text-primary hover:bg-transparent"
+                      )}
                     >
                       {link.title} <ChevronDown className="h-4 w-4" />
                     </Button>
@@ -147,7 +155,10 @@ export function Header() {
                 <Link
                   key={link.title}
                   href={link.href}
-                  className="font-black uppercase italic tracking-tighter text-sm text-foreground hover:text-primary transition-colors relative group py-2"
+                  className={cn(
+                    "font-black uppercase italic tracking-tighter text-sm transition-colors relative group py-2",
+                    isHomePage ? "text-white hover:text-white" : "text-foreground hover:text-primary"
+                  )}
                 >
                   {link.title}
                   <motion.span
@@ -158,15 +169,18 @@ export function Header() {
             )}
           </nav>
           <div className="hidden lg:flex items-center gap-6">
-            <ThemeSwitcher />
-            <Button variant="ghost" className="font-black uppercase italic tracking-tighter h-11 hover:text-primary hover:bg-transparent" asChild>
+            <ThemeSwitcher forceWhite={isHomePage} />
+            <Button variant="ghost" className={cn("font-black uppercase italic tracking-tighter h-11 transition-colors", isHomePage ? "text-white hover:text-white" : "text-foreground hover:text-primary")} asChild>
               <a href={mounted ? phoneHref : '#'}>
                 <Phone className="mr-2 h-4 w-4" />
                 {mounted ? phoneNumber : '...'}
               </a>
             </Button>
             <Link href="/contact" className="hidden lg:block">
-              <LiquidButton className="h-14 px-8 text-xs tracking-[0.2em] magnetic">
+              <LiquidButton className={cn(
+                "h-14 px-8 text-xs tracking-[0.2em] magnetic transition-colors duration-300",
+                isHomePage ? "text-white border-white bg-transparent hover:bg-white hover:text-black" : "border-primary text-primary"
+              )}>
                 Initiate Strategy
               </LiquidButton>
             </Link>
@@ -174,7 +188,7 @@ export function Header() {
           <div className="lg:hidden">
             <Sheet open={mobileMenuOpen} onOpenChange={setMobileMenuOpen}>
               <SheetTrigger asChild>
-                <Button variant="ghost" size="icon">
+                <Button variant="ghost" size="icon" className={cn(isHomePage && "text-white hover:text-white")}>
                   <Menu className="h-6 w-6" />
                   <span className="sr-only">Open menu</span>
                 </Button>
@@ -231,7 +245,7 @@ export function Header() {
                 <div className="p-6 border-t bg-muted/50">
                   <div className="flex flex-col gap-4">
                     <div className="flex justify-center">
-                      <ThemeSwitcher />
+                      <ThemeSwitcher forceWhite={isHomePage} />
                     </div>
                     <Link href="/contact" className="w-full" onClick={() => setMobileMenuOpen(false)}>
                       <LiquidButton className="w-full py-3 text-xs tracking-[0.2em]">

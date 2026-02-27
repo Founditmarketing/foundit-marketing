@@ -145,12 +145,12 @@ export function GeoSimulatorSection() {
                 <p className="text-foreground text-xl font-black leading-tight uppercase tracking-tight italic relative z-10">
                   {result.recommendation}
                 </p>
-                <div className='flex items-center justify-between mt-8 pt-6 border-t border-primary/10 relative z-10'>
+                <div className='flex flex-col sm:flex-row sm:items-center sm:justify-between mt-8 pt-6 border-t border-primary/10 relative z-10 gap-4'>
                   <div className="flex items-baseline gap-2">
                     <span className="text-xs font-black font-mono text-muted-foreground uppercase opacity-40">Authority Index:</span>
                     <span className="text-3xl font-black italic text-primary drop-shadow-[0_0_10px_rgba(249,115,22,0.4)]">{result.score}<span className="text-sm ml-1 opacity-50">/100</span></span>
                   </div>
-                  <Button onClick={handleReset} variant="ghost" className="h-10 px-4 text-xs font-black uppercase tracking-widest hover:bg-primary/10 text-primary transition-all rounded-xl">
+                  <Button onClick={handleReset} variant="ghost" className="h-10 px-4 text-xs font-black uppercase tracking-widest hover:bg-primary/10 text-primary transition-all rounded-xl w-full sm:w-auto">
                     New Analysis
                   </Button>
                 </div>
@@ -179,18 +179,18 @@ export function GeoSimulatorSection() {
             <p className="text-muted-foreground leading-snug font-mono text-xs uppercase tracking-tighter mb-4 opacity-70">
               Input competitor URL. Expose their GEO weakness. Dominate the AI entity landscape.
             </p>
-            <form onSubmit={handleSubmit} className="flex gap-2">
+            <form onSubmit={handleSubmit} className="flex flex-col sm:flex-row gap-3">
               <Input
                 type="url"
                 placeholder="https://competitor.com"
                 value={url}
                 onChange={(e) => setUrl(e.target.value)}
                 required
-                className="h-12 bg-background/50 border-primary/20 focus:border-primary/50 text-sm font-mono uppercase tracking-tighter rounded-xl"
+                className="h-12 bg-background/50 border-primary/20 focus:border-primary/50 text-sm font-mono uppercase tracking-tighter rounded-xl w-full"
               />
               <Button
                 type="submit"
-                className="bg-primary text-primary-foreground h-12 px-6 shrink-0 rounded-xl font-black uppercase italic tracking-tighter shadow-lg hover:shadow-primary/20 transition-all hover:-translate-y-0.5"
+                className="bg-primary text-primary-foreground h-12 px-6 shrink-0 rounded-xl font-black uppercase italic tracking-tighter shadow-lg hover:shadow-primary/20 transition-all hover:-translate-y-0.5 w-full sm:w-auto"
                 disabled={loading}
               >
                 {loading ? <Loader2 className="animate-spin w-5 h-5" /> : 'Launch'}
@@ -198,7 +198,7 @@ export function GeoSimulatorSection() {
             </form>
           </div>
         </div>
-      </div>
+      </div >
     );
   };
 
@@ -219,12 +219,12 @@ export function GeoSimulatorSection() {
 
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 lg:gap-4 items-stretch">
           {/* Old World: SEO */}
-          <div className="bg-card border rounded-3xl p-8 flex flex-col">
+          <div className="bg-card border rounded-3xl p-6 lg:p-8 flex flex-col w-full overflow-hidden">
             <div className="mb-4">
-              <h3 className="text-2xl font-bold text-center text-red-400/80 mb-1">
+              <h3 className="text-xl lg:text-2xl font-bold text-center text-red-400/80 mb-1">
                 THE OLD WORLD
               </h3>
-              <p className="text-card-foreground text-center font-mono text-3xl tracking-tighter">
+              <p className="text-card-foreground text-center font-mono text-2xl lg:text-3xl tracking-tighter">
                 SEO
               </p>
             </div>
@@ -292,12 +292,12 @@ export function GeoSimulatorSection() {
           </div>
 
           {/* New World: GEO */}
-          <div className="bg-primary/10 border-2 border-primary/80 rounded-3xl p-8 flex flex-col shadow-2xl shadow-primary/20 scale-[1.02]">
+          <div className="bg-primary/10 border-2 border-primary/80 rounded-3xl p-6 lg:p-8 flex flex-col shadow-2xl shadow-primary/20 lg:scale-[1.02] w-full overflow-hidden">
             <div className="mb-4">
-              <h3 className="text-2xl font-bold text-center text-primary mb-1">
+              <h3 className="text-xl lg:text-2xl font-bold text-center text-primary mb-1">
                 THE NEW WORLD
               </h3>
-              <p className="text-foreground text-center font-mono text-3xl tracking-tighter">
+              <p className="text-foreground text-center font-mono text-2xl lg:text-3xl tracking-tighter">
                 GEO
               </p>
             </div>

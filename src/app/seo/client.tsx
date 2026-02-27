@@ -21,14 +21,19 @@ export default function GeoPage() {
         <div className="lg:grid lg:grid-cols-12 gap-12 mb-32 items-end">
           <div className="lg:col-span-12">
             <h1 className="text-oversized leading-[0.85] mb-8">
-              <TextScramble text="Organic Engine." delay={200} /><br />
+              <TextScramble text="The New Era" delay={200} /><br />
               <span className="text-primary">
-                <TextScramble text="Pure Profit." delay={800} />
+                <TextScramble text="Of Search." delay={800} />
               </span>
             </h1>
-            <p className="text-2xl md:text-4xl text-muted-foreground max-w-5xl border-l-[12px] border-primary pl-10 font-medium italic">
-              Traditional SEO is dead. We build Generative Engine Optimization (GEO) infrastructures that establish your brand as the definitive source of truth for AI models.
+            <p className="text-3xl md:text-5xl font-black italic uppercase tracking-tighter mb-8 text-foreground">
+              Dominating with Found It Marketing
             </p>
+            <div className="text-xl md:text-2xl text-muted-foreground max-w-5xl border-l-[12px] border-primary pl-8 lg:pl-10 font-medium space-y-6">
+              <p>The digital landscape has fractured. Consumers no longer scroll through pages of blue links—they ask AI directly. Traditional SEO is rapidly becoming obsolete.</p>
+              <p className="text-foreground italic font-black">At Found It Marketing, we don't just adapt to this shift. We weaponize it for you.</p>
+              <p>Here is how we ensure your brand doesn't just survive the AI era, but leads it:</p>
+            </div>
           </div>
         </div>
 
@@ -60,54 +65,48 @@ export default function GeoPage() {
           <GeoSimulatorSection />
         </div>
 
-        <div className="grid grid-cols-1 md:grid-cols-12 gap-12 mb-32">
-          <motion.div
-            initial={{ opacity: 0, x: -50 }}
-            whileInView={{ opacity: 1, x: 0 }}
-            viewport={{ once: true }}
-            className="md:col-span-12 lg:col-span-7 bg-card border border-border/50 p-12 lg:p-20 rounded-[4rem] shadow-2xl relative group hover:border-primary/50 transition-colors"
-          >
-            <div className="absolute top-0 right-0 p-12 opacity-5 group-hover:opacity-20 transition-opacity">
-              <Target className="w-48 h-48 text-primary" strokeWidth={1} />
-            </div>
-            <h2 className="text-4xl lg:text-6xl font-black text-card-foreground mb-4 italic uppercase tracking-tighter">
-              High-Intent <span className="text-primary">Action</span>
-            </h2>
-            <p className="text-lg lg:text-2xl text-muted-foreground leading-relaxed max-w-2xl font-medium mb-12 border-l-4 border-primary pl-8">
-              We optimize for profit, not just traffic. Our focus is on driving real-world actions: phone calls, directions, and direct brand inquiries.
-            </p>
-            <div className="grid grid-cols-2 gap-8">
-              {['GBP Dominance', 'Local Map Pack', 'Review Velocity', 'Conversion Content'].map((item) => (
-                <div key={item} className="flex items-center gap-4">
-                  <div className="w-2 h-2 bg-primary rounded-full" />
-                  <span className="font-black uppercase tracking-tighter text-sm italic">{item}</span>
-                </div>
-              ))}
-            </div>
-          </motion.div>
-
-          <motion.div
-            initial={{ opacity: 0, x: 50 }}
-            whileInView={{ opacity: 1, x: 0 }}
-            viewport={{ once: true }}
-            className="md:col-span-12 lg:col-span-5 bg-card/60 backdrop-blur-xl border border-border/50 p-12 lg:p-16 rounded-[4rem] shadow-2xl relative group hover:border-primary/50 transition-colors"
-          >
-            <div className="absolute top-0 right-0 p-8 opacity-5 group-hover:opacity-20 transition-opacity">
-              <Cpu className="w-32 h-32 text-primary" strokeWidth={1} />
-            </div>
-            <h2 className="text-4xl lg:text-5xl font-black text-card-foreground mb-4 italic uppercase tracking-tighter">
-              Entity <span className="text-primary">Building</span>
-            </h2>
-            <p className="text-lg lg:text-xl text-muted-foreground leading-relaxed font-medium mb-8">
-              To win in LLM search, you must be a recognized entity. We build the "Knowledge Graph" that makes you the definitive go-to for Gemini and GPT.
-            </p>
-            <div className="bg-primary/5 border border-primary/10 p-6 rounded-2xl mb-8">
-              <ShieldCheck className="w-8 h-8 text-primary mb-4" />
-              <p className="text-xs font-mono uppercase tracking-widest leading-loose">
-                STRUCTURING DATA FOR LLM CONSUMPTION // ESTABLISHING TOPICAL AUTHORITY
+        <div className="grid grid-cols-1 md:grid-cols-2 gap-8 mb-32">
+          {[
+            {
+              title: "1. The Antidote: Generative Engine Optimization",
+              desc: "If you are only optimizing for Google, you are invisible to the future. AI models now decide who the authority is and deliver that answer directly to the consumer. We pivot your brand from fighting for clicks to being the definitive answer. When AI is asked for the best in your industry, we make sure it names you.",
+              icon: Target
+            },
+            {
+              title: "2. AI-Ready Technical Ecosystems",
+              desc: "A beautiful website is useless if an AI bot cannot understand it. We architect your digital foundation with advanced structured data (JSON-LD), acting as a direct feed to models like ChatGPT, Claude, and Gemini. We don't just wait for AI to find you; we explicitly train it to recommend you.",
+              icon: Cpu
+            },
+            {
+              title: "3. Elite, AI-Driven Efficiency",
+              desc: "Agencies bloated by manual labor are dying. Our agile team of 20 elite specialists leverages enterprise AI to eliminate inefficiencies and accelerate output. For you, this means every dollar of your budget funds needle-moving strategy and growth, not agency overhead.",
+              icon: Activity
+            },
+            {
+              title: "4. The Human Moat",
+              desc: "Algorithms scale, but they cannot replace human trust. Backed by a multimillion-dollar revenue engine, we provide the ultimate competitive advantage: bleeding-edge technology paired with white-glove project management. We guide you flawlessly from strategy to execution with a hyper-local focus that bots simply cannot replicate.",
+              icon: ShieldCheck
+            }
+          ].map((point, i) => (
+            <motion.div
+              key={i}
+              initial={{ opacity: 0, y: 30 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true }}
+              transition={{ delay: i * 0.1 }}
+              className="bg-card/40 backdrop-blur-3xl border border-border/50 p-10 lg:p-14 rounded-[3rem] shadow-2xl relative group hover:border-primary/50 transition-colors flex flex-col"
+            >
+              <div className="mb-8 p-4 bg-primary/10 rounded-2xl w-fit group-hover:bg-primary/20 transition-colors">
+                <point.icon className="w-8 h-8 text-primary" strokeWidth={1.5} />
+              </div>
+              <h3 className="text-2xl lg:text-3xl font-black text-card-foreground mb-4 italic uppercase tracking-tighter">
+                {point.title}
+              </h3>
+              <p className="text-lg text-muted-foreground leading-relaxed font-medium">
+                {point.desc}
               </p>
-            </div>
-          </motion.div>
+            </motion.div>
+          ))}
         </div>
 
         <div className="bg-card/40 backdrop-blur-3xl border border-border/50 rounded-[5rem] p-12 lg:p-24 shadow-3xl mb-32 relative overflow-hidden">
@@ -141,6 +140,13 @@ export default function GeoPage() {
               </div>
             </div>
           </div>
+        </div>
+
+        <div className="bg-primary/5 border border-primary/20 rounded-[4rem] p-12 lg:p-20 text-center max-w-5xl mx-auto mb-32 relative overflow-hidden backdrop-blur-xl shadow-2xl">
+          <h2 className="text-4xl lg:text-5xl font-black italic uppercase tracking-tighter mb-8 text-foreground">The Bottom Line</h2>
+          <p className="text-xl lg:text-2xl text-muted-foreground font-medium leading-relaxed italic border-l-4 border-primary pl-8 text-left max-w-4xl mx-auto">
+            The agencies still selling "10 keywords on page one" are already obsolete. Found It Marketing gives you the technical infrastructure to dominate AI-driven search and the human expertise to convert that visibility into revenue.
+          </p>
         </div>
 
         <div className="text-center py-24 relative">

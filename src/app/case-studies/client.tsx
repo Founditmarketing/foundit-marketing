@@ -3,7 +3,6 @@
 import { Button } from '@/components/ui/button';
 import { AreaChart, Briefcase, DollarSign, Goal, Target, TrendingUp, Users, Cpu, Sparkles, MapPin, PhoneCall, Star, BarChart2, ArrowRight } from 'lucide-react';
 import Link from 'next/link';
-import { NeuralNetworkBackground } from '@/components/ui/NeuralNetworkBackground';
 import { TextScramble } from '@/components/ui/TextScramble';
 import { motion } from 'framer-motion';
 import { cn } from '@/lib/utils';
@@ -148,10 +147,7 @@ const caseStudies = [
 
 export default function CaseStudiesPage() {
   return (
-    <main className="bg-background text-foreground py-24 lg:py-48 relative overflow-hidden">
-      <div className="hidden lg:block absolute inset-0 z-0 opacity-100">
-        <NeuralNetworkBackground />
-      </div>
+    <main className="bg-transparent text-foreground py-24 lg:py-48 relative overflow-hidden">
 
       <div className="max-w-[1440px] mx-auto px-6 relative z-10">
         <div className="lg:grid lg:grid-cols-12 gap-12 mb-32 items-end">

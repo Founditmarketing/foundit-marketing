@@ -6,7 +6,6 @@ import { Button } from '@/components/ui/button';
 import { Input } from '@/components/ui/input';
 import { Label } from '@/components/ui/label';
 import { LiquidButton } from '@/components/ui/LiquidButton';
-import { NeuralNetworkBackground } from '@/components/ui/NeuralNetworkBackground';
 import { TextScramble } from '@/components/ui/TextScramble';
 import { Play, Sparkles, Globe, Mail, User, Loader2, CheckCircle2, ArrowRight, FileText } from 'lucide-react';
 import { cn } from '@/lib/utils';
@@ -61,10 +60,7 @@ export default function FreeProposalPage() {
 
   return (
     <main className="relative min-h-screen pt-24 pb-20 overflow-hidden bg-background">
-      {/* Background Effect */}
-      <div className="absolute inset-0 z-0 opacity-30">
-        <NeuralNetworkBackground />
-      </div>
+
 
       <div className="container relative z-10 px-6 mx-auto">
         <div className="max-w-6xl mx-auto">

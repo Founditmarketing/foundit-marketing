@@ -18,7 +18,6 @@ import { useState } from 'react';
 import { CheckCircle2, Loader2 } from 'lucide-react';
 import { submitContactForm } from '@/app/actions/forms';
 import { useToast } from '@/hooks/use-toast';
-import { NeuralNetworkBackground } from '@/components/ui/NeuralNetworkBackground';
 import { TextScramble } from '@/components/ui/TextScramble';
 import { motion, Variants } from 'framer-motion';
 
@@ -134,11 +133,7 @@ export function ContactSection() {
   }
 
   return (
-    <section className="bg-background text-foreground pt-32 pb-12 lg:py-48 relative overflow-hidden">
-      <div className="hidden lg:block absolute inset-0 z-0 opacity-100">
-        <NeuralNetworkBackground />
-      </div>
-
+    <section className="bg-transparent text-foreground pt-32 pb-12 lg:py-48 relative overflow-hidden">
       <motion.div
         variants={containerVariants}
         initial="hidden"

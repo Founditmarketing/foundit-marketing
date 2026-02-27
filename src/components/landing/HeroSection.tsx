@@ -149,16 +149,7 @@ export function HeroSection() {
   };
 
   return (
-    <section className="relative bg-background min-h-[100dvh] flex flex-col justify-center overflow-hidden border-b pt-32 lg:pt-48 pb-10 lg:pb-16">
-      <div className="absolute inset-0 z-0 opacity-100 overflow-hidden bg-black">
-        <iframe
-          src='https://my.spline.design/retrofuturismbganimation-snudBxLoP8IjEgulxeP3n4WQ/'
-          frameBorder='0'
-          width='100%'
-          height='100%'
-          className="w-full h-[calc(100%+60px)] pointer-events-none absolute bottom-[-60px]"
-        ></iframe>
-      </div>
+    <section className="relative min-h-[100dvh] flex flex-col justify-center overflow-hidden border-b pt-32 lg:pt-48 pb-10 lg:pb-16 bg-transparent">
 
       <div className="flex-grow flex items-center relative z-10 w-full overflow-hidden">
         <div className="max-w-[1440px] mx-auto px-6 w-full relative">

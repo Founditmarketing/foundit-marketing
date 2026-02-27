@@ -1,16 +1,12 @@
 'use client';
 
 import { SolutionWizard } from '@/components/solutions/SolutionWizard';
-import { NeuralNetworkBackground } from '@/components/ui/NeuralNetworkBackground';
 import { TextScramble } from '@/components/ui/TextScramble';
 
 
 export default function SolutionsPage() {
   return (
-    <main className="bg-background text-foreground py-24 lg:py-48 relative overflow-hidden">
-      <div className="hidden lg:block absolute inset-0 z-0 opacity-100">
-        <NeuralNetworkBackground />
-      </div>
+    <main className="bg-transparent text-foreground py-24 lg:py-48 relative overflow-hidden">
 
       <div className="max-w-[1440px] mx-auto px-6 relative z-10">
         <div className="lg:grid lg:grid-cols-12 gap-12 mb-24 items-end">

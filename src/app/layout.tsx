@@ -102,6 +102,15 @@ export default function RootLayout({
         >
           <SmoothScrollProvider>
             <Header />
+            <div className="fixed inset-0 z-[-1] bg-black">
+              <iframe
+                src='https://my.spline.design/retrofuturismbganimation-snudBxLoP8IjEgulxeP3n4WQ/'
+                frameBorder='0'
+                width='100%'
+                height='100%'
+                className="w-full h-[calc(100%+60px)] pointer-events-none absolute bottom-[-60px]"
+              ></iframe>
+            </div>
             {children}
             <Footer />
             <Toaster />

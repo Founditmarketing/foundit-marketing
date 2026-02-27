@@ -145,14 +145,14 @@ export default function GeoPage() {
           </p>
         </div>
 
-        <div className="text-center py-24 relative">
+        <div className="text-center py-24 relative px-4">
           <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-full h-full bg-primary/5 blur-[120px] rounded-full pointer-events-none" />
-          <h2 className="text-oversized mb-12 opacity-10 select-none">PROFIT.</h2>
+          <h2 className="text-oversized mb-12 opacity-10 text-white select-none">PROFIT.</h2>
           <Button
             asChild
-            className="bg-primary text-primary-foreground font-black h-24 px-16 uppercase italic tracking-tighter text-3xl rounded-[2rem] shadow-2xl shadow-primary/30 hover:scale-[1.05] transition-all relative z-10"
+            className="bg-primary text-primary-foreground font-black h-auto py-5 md:py-0 md:h-24 px-8 md:px-16 uppercase italic tracking-tighter text-xl md:text-3xl rounded-2xl md:rounded-[2rem] shadow-2xl shadow-primary/30 hover:scale-[1.05] transition-all relative z-10 w-full sm:w-auto text-center"
           >
-            <Link href="/contact?problem=website">Build Your Empire</Link>
+            <Link href="/contact?problem=website" className="flex items-center justify-center w-full">Build Your Empire</Link>
           </Button>
         </div>
       </div>

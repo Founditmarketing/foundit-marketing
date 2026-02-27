@@ -141,9 +141,9 @@ export function ContactSection() {
         viewport={{ once: true, margin: "-100px" }}
         className="max-w-[1440px] mx-auto px-6 relative z-10"
       >
-        <div className="grid lg:grid-cols-12 gap-16 items-start">
+        <div className="grid lg:grid-cols-12 gap-8 lg:gap-16 items-start">
           <motion.div variants={itemVariants} className="lg:col-span-12 mb-16">
-            <h1 className="text-oversized leading-none mb-8">
+            <h1 className="text-5xl md:text-7xl lg:text-oversized leading-[1.1] lg:leading-none mb-8">
               <TextScramble text={title} />
             </h1>
             <p className="text-xl md:text-3xl text-muted-foreground max-w-4xl border-l-[6px] lg:border-l-[12px] border-primary pl-6 lg:pl-10 font-medium italic">

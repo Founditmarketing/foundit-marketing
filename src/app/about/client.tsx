@@ -127,8 +127,8 @@ export default function AboutPage() {
           </motion.div>
         </div>
 
-        <div className="text-center py-24">
-          <h3 className="text-oversized mb-12 opacity-10 select-none">EMPIRE.</h3>
+        <div className="text-center py-24 px-4">
+          <h3 className="text-oversized mb-12 opacity-10 text-white select-none">EMPIRE.</h3>
           <p className="text-2xl text-muted-foreground max-w-4xl mx-auto font-medium italic">
             By integrating a high-velocity paid engine with a high-profit
             organic foundation, we build systems that deliver consistent,

@@ -219,7 +219,7 @@ export function GeoSimulatorSection() {
 
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 lg:gap-4 items-stretch">
           {/* Old World: SEO */}
-          <div className="bg-card border rounded-3xl p-6 lg:p-8 flex flex-col w-full overflow-hidden">
+          <div className="hidden lg:flex bg-card border rounded-3xl p-6 lg:p-8 flex-col w-full overflow-hidden">
             <div className="mb-4">
               <h3 className="text-xl lg:text-2xl font-bold text-center text-red-400/80 mb-1">
                 THE OLD WORLD

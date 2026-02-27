@@ -58,7 +58,7 @@ export default function GeoPage() {
           ))}
         </div>
 
-        <div className="bg-card/40 backdrop-blur-3xl border border-border/50 rounded-[4rem] p-10 lg:p-20 shadow-3xl mb-32 overflow-hidden relative">
+        <div className="hidden lg:block bg-card/40 backdrop-blur-3xl border border-border/50 rounded-[4rem] p-10 lg:p-20 shadow-3xl mb-32 overflow-hidden relative">
           <div className="absolute top-0 right-0 p-10 opacity-5">
             <Activity className="w-64 h-64 text-primary" strokeWidth={0.5} />
           </div>

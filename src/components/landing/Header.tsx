@@ -191,7 +191,7 @@ export function Header() {
                     </Link>
                   </SheetTitle>
                 </SheetHeader>
-                <div className="flex-1 overflow-y-auto p-4 flex flex-col justify-center text-center">
+                <div className="flex-1 overflow-y-auto p-4 flex flex-col justify-start text-center pt-8">
                   <div className="flex flex-col gap-6 items-center">
 
                     {navLinks.map((link) => (

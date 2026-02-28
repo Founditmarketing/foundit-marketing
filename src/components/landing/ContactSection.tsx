@@ -85,7 +85,33 @@ export function ContactSection() {
             </p>
           </motion.div>
 
-          <motion.div variants={itemVariants} className="lg:col-span-5 mb-12 lg:mb-0">
+          {/* Form Section - Moved to top on mobile, right side on desktop */}
+          <motion.div variants={itemVariants} className="lg:col-span-7 w-full order-1 lg:order-2">
+            <div className="w-full flex items-center justify-center relative bg-card/10 lg:bg-transparent rounded-3xl lg:rounded-none p-4 lg:p-0">
+              <iframe
+                src="https://api.leadconnectorhq.com/widget/form/FXyD279qmIC0yUDrZfYz"
+                style={{ width: '100%', height: '100%', border: 'none', borderRadius: '4px', minHeight: '800px', backgroundColor: 'transparent' }}
+                id="inline-FXyD279qmIC0yUDrZfYz"
+                data-layout="{'id':'INLINE'}"
+                data-trigger-type="alwaysShow"
+                data-trigger-value=""
+                data-activation-type="alwaysActivated"
+                data-activation-value=""
+                data-deactivation-type="neverDeactivate"
+                data-deactivation-value=""
+                data-form-name="Form 1"
+                data-height="800"
+                data-layout-iframe-id="inline-FXyD279qmIC0yUDrZfYz"
+                data-form-id="FXyD279qmIC0yUDrZfYz"
+                title="Form 1"
+                className="relative z-10 w-full"
+              />
+              <Script src="https://link.msgsndr.com/js/form_embed.js" strategy="lazyOnload" />
+            </div>
+          </motion.div>
+
+          {/* Response Protocol Section - Moved to bottom on mobile, left side on desktop */}
+          <motion.div variants={itemVariants} className="lg:col-span-5 mt-12 lg:mt-0 order-2 lg:order-1">
             <div className="lg:sticky lg:top-48">
               <div className="bg-card/30 backdrop-blur-xl border border-border/50 p-8 lg:p-12 rounded-[2rem] lg:rounded-[4rem] shadow-2xl overflow-hidden relative group">
                 <div className="absolute inset-0 bg-primary/5 opacity-0 group-hover:opacity-100 transition-opacity duration-1000" />
@@ -113,30 +139,6 @@ export function ContactSection() {
                   </div>
                 </div>
               </div>
-            </div>
-          </motion.div>
-
-          <motion.div variants={itemVariants} className="lg:col-span-7 w-full">
-            <div className="w-full flex items-center justify-center relative bg-card/10 lg:bg-transparent rounded-3xl lg:rounded-none p-4 lg:p-0">
-              <iframe
-                src="https://api.leadconnectorhq.com/widget/form/FXyD279qmIC0yUDrZfYz"
-                style={{ width: '100%', height: '100%', border: 'none', borderRadius: '4px', minHeight: '800px', backgroundColor: 'transparent' }}
-                id="inline-FXyD279qmIC0yUDrZfYz"
-                data-layout="{'id':'INLINE'}"
-                data-trigger-type="alwaysShow"
-                data-trigger-value=""
-                data-activation-type="alwaysActivated"
-                data-activation-value=""
-                data-deactivation-type="neverDeactivate"
-                data-deactivation-value=""
-                data-form-name="Form 1"
-                data-height="800"
-                data-layout-iframe-id="inline-FXyD279qmIC0yUDrZfYz"
-                data-form-id="FXyD279qmIC0yUDrZfYz"
-                title="Form 1"
-                className="relative z-10 w-full"
-              />
-              <Script src="https://link.msgsndr.com/js/form_embed.js" strategy="lazyOnload" />
             </div>
           </motion.div>
         </div>

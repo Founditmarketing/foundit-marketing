@@ -258,7 +258,7 @@ export function ContactSection() {
                     </Button>
                   </div>
                   <p className="text-xs text-muted-foreground mt-4 text-center max-w-md mx-auto">
-                    By submitting this form, you agree to our <Link href="/privacy-policy" className="underline hover:text-primary">Privacy Policy</Link> and consent to receive SMS communications. Message frequency varies. Reply STOP to opt out.
+                    By submitting this form, you agree to our <Link href="/terms-of-service" className="underline hover:text-primary">Terms of Service</Link> and <Link href="/privacy-policy" className="underline hover:text-primary">Privacy Policy</Link>, and consent to receive SMS communications. Message frequency varies. Reply STOP to opt out.
                   </p>
                 </form>
               )}

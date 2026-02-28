@@ -17,6 +17,7 @@ import { submitSecretForm } from '@/app/actions/forms';
 import { useToast } from '@/hooks/use-toast';
 import { motion, Variants } from 'framer-motion';
 import { ScrollReveal } from '@/components/ui/ScrollReveal';
+import Link from 'next/link';
 
 const liquidEasing = [0.16, 1, 0.3, 1] as const;
 
@@ -201,7 +202,7 @@ export function SecretContactForm() {
                                     )}
                                 </Button>
                                 <p className="text-center text-xs text-muted-foreground mt-4">
-                                    By submitting, you agree to let the data lead the way.
+                                    By submitting this form, you agree to our <Link href="/terms-of-service" className="underline hover:text-primary">Terms of Service</Link> and <Link href="/privacy-policy" className="underline hover:text-primary">Privacy Policy</Link>, and consent to receive SMS communications. Message frequency varies. Reply STOP to opt out.
                                 </p>
                             </motion.div>
                         </form>

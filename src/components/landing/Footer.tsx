@@ -131,9 +131,14 @@ export function Footer() {
             </Link>
           </p>
           <p className="text-muted-foreground font-mono text-[9px] uppercase tracking-[0.4em]">
-            <Link href="/privacy-policy" className="text-primary/70 hover:text-primary hover:tracking-[0.6em] transition-all duration-500 font-black">
-              PRIVACY POLICY
-            </Link>
+            <span className="flex items-center gap-4 flex-col sm:flex-row">
+              <Link href="/terms-of-service" className="text-primary/70 hover:text-primary hover:tracking-[0.6em] transition-all duration-500 font-black">
+                TERMS OF SERVICE
+              </Link>
+              <Link href="/privacy-policy" className="text-primary/70 hover:text-primary hover:tracking-[0.6em] transition-all duration-500 font-black">
+                PRIVACY POLICY
+              </Link>
+            </span>
           </p>
         </div>
       </div>

@@ -31,7 +31,7 @@ const titleMap: { [key: string]: { title: string; description: string } } = {
   },
   default: {
     title: 'Get a Free, Custom Proposal',
-    description: "Let's talk about your goals. We'll get back to you in one hour with the kind of proposal other agencies take weeks to build.",
+    description: "Let's talk about your goals. We'll build you the kind of data-backed proposal other agencies take weeks to create.",
   },
 };
 
@@ -98,8 +98,8 @@ export function ContactSection() {
                       <CheckCircle2 className="w-7 h-7 text-primary" />
                     </div>
                     <div>
-                      <p className="text-foreground font-black uppercase tracking-tighter text-2xl mb-2 italic">60 Minute Triage</p>
-                      <p className="text-muted-foreground text-lg leading-relaxed">Every request is reviewed by a Senior Strategist within one hour.</p>
+                      <p className="text-foreground font-black uppercase tracking-tighter text-2xl mb-2 italic">Executive Triage</p>
+                      <p className="text-muted-foreground text-lg leading-relaxed">Every request is reviewed by a Senior Strategist to ensure alignment.</p>
                     </div>
                   </div>
                   <div className="flex gap-8 items-start">

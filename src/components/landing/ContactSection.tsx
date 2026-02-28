@@ -117,7 +117,7 @@ export function ContactSection() {
           </motion.div>
 
           <motion.div variants={itemVariants} className="lg:col-span-7">
-            <div className="bg-card/40 backdrop-blur-2xl border border-border/50 rounded-[1.5rem] lg:rounded-[4rem] p-6 lg:p-20 shadow-3xl min-h-[500px] lg:min-h-[600px] flex items-center justify-center relative overflow-hidden">
+            <div className="bg-transparent lg:p-10 min-h-[500px] lg:min-h-[600px] flex items-center justify-center relative overflow-hidden">
 
               <div className="absolute inset-0 bg-gradient-to-br from-primary/[0.02] to-transparent pointer-events-none" />
               <iframe
@@ -136,7 +136,7 @@ export function ContactSection() {
                 data-layout-iframe-id="inline-FXyD279qmIC0yUDrZfYz"
                 data-form-id="FXyD279qmIC0yUDrZfYz"
                 title="Form 1"
-                className="relative z-10 w-full"
+                className="relative z-10 w-full rounded-[2rem] shadow-2xl opacity-90 hover:opacity-100 transition-opacity duration-500"
               />
               <Script src="https://link.msgsndr.com/js/form_embed.js" strategy="lazyOnload" />
             </div>

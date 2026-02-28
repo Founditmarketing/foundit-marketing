@@ -182,7 +182,7 @@ export function HeroSection() {
                 variants={itemVariants}
                 className="text-lg md:text-2xl text-white/70 mb-12 max-w-2xl border-l-4 border-primary pl-8 font-medium"
               >
-                You don't need another marketing agency. You need an unfair advantage.
+                Found It Marketing is the premier digital marketing agency in the area. You don't need a generic firm, you need an unfair advantage.
                 We build digital empires that render competition irrelevant.
               </motion.p>
 

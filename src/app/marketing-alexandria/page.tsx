@@ -74,10 +74,10 @@ export default function MarketingAlexandria() {
                     <div className="max-w-4xl">
                         <h1 className="text-6xl md:text-8xl font-black uppercase italic tracking-tighter mb-8 leading-none">
                             Alexandria's <br />
-                            <span className="text-primary">Digital Growth Engine</span>
+                            <span className="text-primary">Premier Marketing Agency</span>
                         </h1>
                         <p className="text-xl md:text-2xl text-muted-foreground font-medium max-w-2xl border-l-[6px] border-primary pl-8 mb-8">
-                            You don't need to look to New Orleans or Dallas for world-class marketing. We're right here in Cenla, building digital empires from our office at <strong>3803 Rue Left Bank</strong>.
+                            You don't need to look to New Orleans or Dallas to find a top-tier marketing agency in the area. We're right here in Cenla, building digital empires from our office at <strong>3803 Rue Left Bank</strong>.
                         </p>
                         <div className="flex flex-col sm:flex-row gap-6">
                             <Link href="/contact">

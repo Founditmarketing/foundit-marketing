@@ -1,23 +1,10 @@
 'use client';
 
 import Link from 'next/link';
+import Script from 'next/script';
 
 import { useSearchParams } from 'next/navigation';
-import { Button } from '@/components/ui/button';
-import { Input } from '@/components/ui/input';
-import { Textarea } from '@/components/ui/textarea';
-import { Label } from '@/components/ui/label';
-import {
-  Select,
-  SelectContent,
-  SelectItem,
-  SelectTrigger,
-  SelectValue,
-} from '@/components/ui/select';
-import { useState } from 'react';
-import { CheckCircle2, Loader2 } from 'lucide-react';
-import { submitContactForm } from '@/app/actions/forms';
-import { useToast } from '@/hooks/use-toast';
+import { CheckCircle2 } from 'lucide-react';
 import { TextScramble } from '@/components/ui/TextScramble';
 import { motion, Variants } from 'framer-motion';
 
@@ -76,61 +63,8 @@ const itemVariants: Variants = {
 
 export function ContactSection() {
   const searchParams = useSearchParams();
-  const { toast } = useToast();
   const problem = searchParams.get('problem') || 'default';
   const { title, description } = titleMap[problem] || titleMap.default;
-  const [revenue, setRevenue] = useState('');
-  const [submitted, setSubmitted] = useState(false);
-  const [loading, setLoading] = useState(false);
-  const [revenueError, setRevenueError] = useState<string | null>(null);
-
-
-  const handleSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
-    e.preventDefault();
-
-    if (!revenue) {
-      setRevenueError('Please select your annual revenue bracket.');
-      return;
-    }
-    setRevenueError(null);
-    setLoading(true);
-
-    const formData = new FormData(e.currentTarget);
-    formData.append('revenue', revenue);
-
-    try {
-      const result = await submitContactForm(formData);
-
-      if (result.success) {
-        setSubmitted(true);
-        toast({
-          title: "Proposal Requested!",
-          description: "We've received your request and will be in touch within one hour.",
-        });
-      } else {
-        toast({
-          title: "Submission Failed",
-          description: result.error || "An unexpected error occurred. Please try again.",
-          variant: "destructive",
-        });
-      }
-    } catch (err) {
-      toast({
-        title: "Error",
-        description: "Something went wrong. Please try again later.",
-        variant: "destructive",
-      });
-    } finally {
-      setLoading(false);
-    }
-  };
-
-  const handleRevenueChange = (value: string) => {
-    setRevenue(value);
-    if (revenueError) {
-      setRevenueError(null);
-    }
-  }
 
   return (
     <section className="bg-transparent text-foreground pt-32 pb-12 lg:py-48 relative overflow-hidden">
@@ -186,82 +120,25 @@ export function ContactSection() {
             <div className="bg-card/40 backdrop-blur-2xl border border-border/50 rounded-[1.5rem] lg:rounded-[4rem] p-6 lg:p-20 shadow-3xl min-h-[500px] lg:min-h-[600px] flex items-center justify-center relative overflow-hidden">
 
               <div className="absolute inset-0 bg-gradient-to-br from-primary/[0.02] to-transparent pointer-events-none" />
-              {submitted ? (
-                <div className="text-center animate-in fade-in-50 duration-1000 slide-in-from-bottom-10">
-                  <CheckCircle2 className="w-24 h-24 text-primary mx-auto mb-8" />
-                  <h2 className="text-5xl font-black text-foreground italic uppercase tracking-tighter mb-4">Transmission Received.</h2>
-                  <p className="text-xl text-muted-foreground mb-12 max-w-sm mx-auto font-medium">Our experts are analyzing your footprint. Anticipate a response within 60 minutes.</p>
-                  <Button
-                    variant="outline"
-                    className="rounded-full px-12 h-16 text-lg font-black border-primary text-primary hover:bg-primary/10 transition-all uppercase italic tracking-tighter"
-                    onClick={() => { setSubmitted(false); setRevenue(''); }}
-                  >
-                    Submit New Protocol
-                  </Button>
-                </div>
-              ) : (
-                <form onSubmit={handleSubmit} className="space-y-10 w-full relative z-10">
-                  <input type="hidden" name="problem" value={problem} />
-                  <div className="grid grid-cols-1 sm:grid-cols-2 gap-6 lg:gap-10">
-
-                    <div className="space-y-4">
-                      <Label htmlFor="name" className="text-foreground font-black uppercase tracking-[0.3em] text-[10px] opacity-60">Identity</Label>
-                      <Input id="name" name="name" placeholder="John Doe" required className="bg-background/40 border-border/40 h-14 lg:h-16 rounded-2xl focus:ring-4 focus:ring-primary/10 focus:border-primary/50 transition-all text-base lg:text-lg font-medium" />
-                    </div>
-                    <div className="space-y-4">
-                      <Label htmlFor="email" className="text-foreground font-black uppercase tracking-[0.3em] text-[10px] opacity-60">Uplink Address</Label>
-                      <Input id="email" name="email" type="email" placeholder="you@company.com" required className="bg-background/40 border-border/40 h-14 lg:h-16 rounded-2xl focus:ring-4 focus:ring-primary/10 focus:border-primary/50 transition-all text-base lg:text-lg font-medium" />
-                    </div>
-                  </div>
-                  <div className="space-y-4">
-                    <Label htmlFor="website" className="text-foreground font-black uppercase tracking-[0.3em] text-[10px] opacity-60">Digital Domain</Label>
-                    <Input id="website" name="website" placeholder="https://yourcompany.com" required className="bg-background/40 border-border/40 h-14 lg:h-16 rounded-2xl focus:ring-4 focus:ring-primary/10 focus:border-primary/50 transition-all text-base lg:text-lg font-medium" />
-                  </div>
-                  <div className="space-y-4">
-                    <Label htmlFor="revenue" className="text-foreground font-black uppercase tracking-[0.3em] text-[10px] opacity-60">Velocity (Annual Revenue)</Label>
-                    <Select onValueChange={handleRevenueChange} value={revenue}>
-                      <SelectTrigger id="revenue" className="w-full bg-background/40 border-border/40 h-14 lg:h-16 rounded-2xl focus:ring-4 focus:ring-primary/10 focus:border-primary/50 transition-all text-base lg:text-lg font-medium">
-                        <SelectValue placeholder="Select revenue" />
-                      </SelectTrigger>
-                      <SelectContent className="bg-card border-border/50 rounded-2xl p-2 backdrop-blur-3xl">
-                        <SelectItem value="< $500K" className="rounded-xl focus:bg-primary/10 focus:text-primary font-bold py-3">&lt; $500K</SelectItem>
-                        <SelectItem value="$500K - $1M" className="rounded-xl focus:bg-primary/10 focus:text-primary font-bold py-3">$500K - $1M</SelectItem>
-                        <SelectItem value="$1M - $5M" className="rounded-xl focus:bg-primary/10 focus:text-primary font-bold py-3">$1M - $5M</SelectItem>
-                        <SelectItem value="$5M - $10M" className="rounded-xl focus:bg-primary/10 focus:text-primary font-bold py-3">$5M - $10M</SelectItem>
-                        <SelectItem value="$10M - $50M" className="rounded-xl focus:bg-primary/10 focus:text-primary font-bold py-3">$10M - $50M</SelectItem>
-                        <SelectItem value="$50M+" className="rounded-xl focus:bg-primary/10 focus:text-primary font-bold py-3">$50M+</SelectItem>
-                      </SelectContent>
-                    </Select>
-                    {revenueError && <p className="text-primary text-sm mt-3 font-black uppercase italic tracking-tighter animate-bounce">{revenueError}</p>}
-                  </div>
-                  <div className="space-y-4">
-                    <Label htmlFor="message" className="text-foreground font-black uppercase tracking-[0.3em] text-[10px] opacity-60">Operational Obstacles</Label>
-                    <div className="relative">
-                      <Textarea id="message" name="message" placeholder="Describe your challenge..." rows={4} required className="bg-background/40 border-border/40 rounded-3xl focus:ring-4 focus:ring-primary/10 focus:border-primary/50 transition-all text-base lg:text-lg font-medium p-3 lg:p-6" />
-                    </div>
-                  </div>
-                  <div className="pt-4 lg:pt-6">
-
-                    <Button
-                      type="submit"
-                      disabled={loading}
-                      className="w-full bg-primary text-primary-foreground font-black h-16 sm:h-20 lg:h-24 px-4 sm:px-12 uppercase italic tracking-tighter text-lg sm:text-xl lg:text-2xl rounded-2xl lg:rounded-[2rem] shadow-3xl shadow-primary/40 hover:scale-[1.01] active:scale-[0.98] transition-all duration-700 ease-liquid magnetic whitespace-normal sm:whitespace-nowrap"
-                    >
-                      {loading ? (
-                        <div className="flex items-center gap-2 sm:gap-4">
-                          <Loader2 className="h-6 w-6 sm:h-8 sm:w-8 animate-spin" strokeWidth={3} />
-                          <span>Processing...</span>
-                        </div>
-                      ) : (
-                        'Initiate Analysis'
-                      )}
-                    </Button>
-                  </div>
-                  <p className="text-xs text-muted-foreground mt-4 text-center max-w-md mx-auto">
-                    By submitting this form, you agree to our <Link href="/terms-of-service" className="underline hover:text-primary">Terms of Service</Link> and <Link href="/privacy-policy" className="underline hover:text-primary">Privacy Policy</Link>, and consent to receive SMS communications. Message frequency varies. Reply STOP to opt out.
-                  </p>
-                </form>
-              )}
+              <iframe
+                src="https://api.leadconnectorhq.com/widget/form/FXyD279qmIC0yUDrZfYz"
+                style={{ width: '100%', height: '100%', border: 'none', borderRadius: '4px', minHeight: '600px' }}
+                id="inline-FXyD279qmIC0yUDrZfYz"
+                data-layout="{'id':'INLINE'}"
+                data-trigger-type="alwaysShow"
+                data-trigger-value=""
+                data-activation-type="alwaysActivated"
+                data-activation-value=""
+                data-deactivation-type="neverDeactivate"
+                data-deactivation-value=""
+                data-form-name="Form 1"
+                data-height="586"
+                data-layout-iframe-id="inline-FXyD279qmIC0yUDrZfYz"
+                data-form-id="FXyD279qmIC0yUDrZfYz"
+                title="Form 1"
+                className="relative z-10 w-full"
+              />
+              <Script src="https://link.msgsndr.com/js/form_embed.js" strategy="lazyOnload" />
             </div>
           </motion.div>
         </div>

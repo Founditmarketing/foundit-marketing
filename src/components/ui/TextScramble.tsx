@@ -29,25 +29,29 @@ export function TextScramble({
     }, [autostart, delay]);
 
     return (
-        <span className={cn("inline-flex flex-nowrap whitespace-nowrap gap-[0.05em] leading-none", className)}>
+        <span className={cn("inline-flex flex-wrap leading-none", className)} style={{ columnGap: '0.2em' }}>
             <span className="sr-only">{text}</span>
             <AnimatePresence>
                 {isVisible && (
                     <>
-                        {text.split("").map((char, index) => (
-                            <motion.span
-                                key={index}
-                                initial={{ opacity: 0, y: 20, filter: "blur(10px)" }}
-                                animate={{ opacity: 1, y: 0, filter: "blur(0px)" }}
-                                transition={{
-                                    duration: 0.8,
-                                    delay: index * 0.035,
-                                    ease: [0.2, 0.65, 0.3, 0.9]
-                                }}
-                                className="inline-block"
-                            >
-                                {char === " " ? "\u00A0" : char}
-                            </motion.span>
+                        {text.split(" ").map((word, wordIndex) => (
+                            <span key={wordIndex} className="inline-flex whitespace-nowrap">
+                                {word.split("").map((char, charIndex) => (
+                                    <motion.span
+                                        key={charIndex}
+                                        initial={{ opacity: 0, y: 20, filter: "blur(10px)" }}
+                                        animate={{ opacity: 1, y: 0, filter: "blur(0px)" }}
+                                        transition={{
+                                            duration: 0.8,
+                                            delay: (wordIndex * 5 + charIndex) * 0.035,
+                                            ease: [0.2, 0.65, 0.3, 0.9]
+                                        }}
+                                        className="inline-block"
+                                    >
+                                        {char}
+                                    </motion.span>
+                                ))}
+                            </span>
                         ))}
                     </>
                 )}

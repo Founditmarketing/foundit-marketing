@@ -86,9 +86,13 @@ const StatCard = ({
   return (
     <div className="flex flex-col items-center group" ref={countRef}>
       <div className="flex items-center gap-4 mb-3">
-        <div className="p-3 bg-primary/5 rounded-2xl border border-primary/10 group-hover:bg-primary/15 transition-colors shadow-[0_0_20px_rgba(249,115,22,0.1)]">
+        <motion.div
+          animate={{ y: [0, -5, 0] }}
+          transition={{ duration: 3, repeat: Infinity, ease: "easeInOut" as any }}
+          className="p-3 bg-primary/5 rounded-2xl border border-primary/10 group-hover:bg-primary/15 transition-colors shadow-[0_0_20px_rgba(249,115,22,0.1)]"
+        >
           <Icon className="w-8 h-8 text-primary" strokeWidth={1} />
-        </div>
+        </motion.div>
         <span className="text-white text-5xl font-black tabular-nums tracking-tighter italic">
           {prefix}
           {typeof displayValue === 'number'

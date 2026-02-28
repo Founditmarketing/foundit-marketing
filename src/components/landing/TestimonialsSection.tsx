@@ -8,6 +8,16 @@ import {
   CarouselNext,
   CarouselPrevious,
 } from "@/components/ui/carousel"
+import { motion } from 'framer-motion';
+
+const floatCard = {
+  y: [0, -10, 0],
+  transition: {
+    duration: 5,
+    repeat: Infinity,
+    ease: "easeInOut" as any
+  }
+};
 
 const testimonials = [
   {
@@ -55,23 +65,35 @@ export function TestimonialsSection() {
           className="w-full"
         >
           <CarouselContent>
-            {testimonials.map((testimonial) => (
+            {testimonials.map((testimonial, index) => (
               <CarouselItem key={testimonial.id} className="md:basis-1/2 lg:basis-1/3">
-                <div className="p-4 h-full relative">
-                  <div className="bg-card rounded-[3rem] border border-border/50 flex flex-col overflow-hidden group h-full p-10 shadow-xl hover:shadow-2xl transition-all duration-500 hover:-translate-y-2 relative z-10 backdrop-blur-sm">
-                    <div className="flex items-center mb-6">
+                <motion.div
+                  initial={{ opacity: 0, y: 30 }}
+                  whileInView={{ opacity: 1, y: 0 }}
+                  viewport={{ once: true, margin: "-50px" }}
+                  transition={{ duration: 0.6, delay: index * 0.1 }}
+                  className="p-4 h-full relative"
+                >
+                  <motion.div
+                    animate={floatCard}
+                    className="bg-card rounded-[3rem] border border-border/50 flex flex-col overflow-hidden group h-full p-10 shadow-xl hover:shadow-2xl transition-all duration-500 hover:-translate-y-4 hover:border-primary/50 relative z-10 backdrop-blur-sm"
+                  >
+                    {/* Subtle Glow on Hover */}
+                    <div className="absolute inset-0 bg-primary/0 group-hover:bg-primary/5 transition-colors duration-500 pointer-events-none" />
+
+                    <div className="flex items-center mb-6 relative z-10">
                       {[...Array(5)].map((_, i) => (
-                        <Star key={i} className="w-5 h-5 text-primary fill-primary" />
+                        <Star key={i} className="w-5 h-5 text-primary fill-primary drop-shadow-[0_0_8px_rgba(255,85,0,0.5)]" />
                       ))}
                     </div>
-                    <p className="text-muted-foreground italic text-lg mb-6 flex-grow">"{testimonial.quote}"</p>
+                    <p className="text-muted-foreground italic text-lg mb-6 flex-grow relative z-10">"{testimonial.quote}"</p>
 
-                    <div>
+                    <div className="relative z-10">
                       <p className="font-bold text-card-foreground">{testimonial.name}</p>
                       <p className="text-sm text-primary">{testimonial.title}</p>
                     </div>
-                  </div>
-                </div>
+                  </motion.div>
+                </motion.div>
               </CarouselItem>
             ))}
           </CarouselContent>

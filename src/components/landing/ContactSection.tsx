@@ -76,18 +76,18 @@ export function ContactSection() {
         className="max-w-[1440px] mx-auto px-6 relative z-10"
       >
         <div className="grid lg:grid-cols-12 gap-8 lg:gap-16 items-start">
-          <motion.div variants={itemVariants} className="lg:col-span-12 mb-16">
-            <h1 className="text-5xl md:text-7xl lg:text-oversized leading-[1.1] lg:leading-none mb-8">
+          <motion.div variants={itemVariants} className="lg:col-span-12 mb-8 lg:mb-16">
+            <h1 className="text-4xl md:text-7xl lg:text-oversized leading-[1.1] lg:leading-none mb-6 lg:mb-8">
               <TextScramble text={title} />
             </h1>
-            <p className="text-xl md:text-3xl text-muted-foreground max-w-4xl border-l-[6px] lg:border-l-[12px] border-primary pl-6 lg:pl-10 font-medium italic">
+            <p className="text-lg md:text-3xl text-muted-foreground max-w-4xl border-l-[4px] lg:border-l-[12px] border-primary pl-4 lg:pl-10 font-medium italic">
               {description}
             </p>
           </motion.div>
 
-          <motion.div variants={itemVariants} className="lg:col-span-5 hidden lg:block">
-            <div className="sticky top-48">
-              <div className="bg-card/30 backdrop-blur-xl border border-border/50 p-12 rounded-[4rem] shadow-2xl overflow-hidden relative group">
+          <motion.div variants={itemVariants} className="lg:col-span-5 mb-12 lg:mb-0">
+            <div className="lg:sticky lg:top-48">
+              <div className="bg-card/30 backdrop-blur-xl border border-border/50 p-8 lg:p-12 rounded-[2rem] lg:rounded-[4rem] shadow-2xl overflow-hidden relative group">
                 <div className="absolute inset-0 bg-primary/5 opacity-0 group-hover:opacity-100 transition-opacity duration-1000" />
                 <h3 className="text-primary font-mono text-xl font-black uppercase tracking-[0.3em] mb-8 opacity-60">
                   Response Protocol
@@ -116,11 +116,11 @@ export function ContactSection() {
             </div>
           </motion.div>
 
-          <motion.div variants={itemVariants} className="lg:col-span-7">
-            <div className="w-full flex items-center justify-center relative">
+          <motion.div variants={itemVariants} className="lg:col-span-7 w-full">
+            <div className="w-full flex items-center justify-center relative bg-card/10 lg:bg-transparent rounded-3xl lg:rounded-none p-4 lg:p-0">
               <iframe
                 src="https://api.leadconnectorhq.com/widget/form/FXyD279qmIC0yUDrZfYz"
-                style={{ width: '100%', height: '100%', border: 'none', borderRadius: '4px', minHeight: '600px', backgroundColor: 'transparent' }}
+                style={{ width: '100%', height: '100%', border: 'none', borderRadius: '4px', minHeight: '800px', backgroundColor: 'transparent' }}
                 id="inline-FXyD279qmIC0yUDrZfYz"
                 data-layout="{'id':'INLINE'}"
                 data-trigger-type="alwaysShow"
@@ -130,7 +130,7 @@ export function ContactSection() {
                 data-deactivation-type="neverDeactivate"
                 data-deactivation-value=""
                 data-form-name="Form 1"
-                data-height="586"
+                data-height="800"
                 data-layout-iframe-id="inline-FXyD279qmIC0yUDrZfYz"
                 data-form-id="FXyD279qmIC0yUDrZfYz"
                 title="Form 1"

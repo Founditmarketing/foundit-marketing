@@ -14,6 +14,15 @@ import { cn } from '@/lib/utils';
 import type { LucideIcon } from 'lucide-react';
 import { motion } from 'framer-motion';
 
+const floatIcon = {
+  y: [0, -8, 0],
+  transition: {
+    duration: 3,
+    repeat: Infinity,
+    ease: "easeInOut" as any
+  }
+};
+
 const problems = [
   {
     value: 'low-traffic',
@@ -110,10 +119,12 @@ export function ProblemSolverSection() {
             <div className="absolute inset-0 bg-gradient-to-br from-primary/[0.03] to-transparent pointer-events-none" />
 
             <div className="lg:col-span-8 relative z-10">
-              <ActiveIcon
-                className="w-16 h-16 lg:w-24 lg:h-24 text-primary mb-12"
-                strokeWidth={1}
-              />
+              <motion.div animate={floatIcon}>
+                <ActiveIcon
+                  className="w-16 h-16 lg:w-24 lg:h-24 text-primary mb-12"
+                  strokeWidth={1}
+                />
+              </motion.div>
               <h3 className="text-card-foreground font-black text-4xl lg:text-6xl italic uppercase tracking-tighter mb-8 leading-none">
                 {activeProblem.title}
               </h3>

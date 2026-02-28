@@ -9,6 +9,24 @@ import Link from 'next/link';
 import { Line, LineChart, ResponsiveContainer, Tooltip, XAxis, YAxis, CartesianGrid } from 'recharts';
 import { motion, Variants } from 'framer-motion';
 
+const floatAnimation = {
+  y: [0, -10, 0],
+  transition: {
+    duration: 4,
+    repeat: Infinity,
+    ease: "easeInOut" as any
+  }
+};
+
+const pulseAnimation = {
+  scale: [1, 1.02, 1],
+  transition: {
+    duration: 3,
+    repeat: Infinity,
+    ease: "easeInOut" as any
+  }
+};
+
 const kpiData = [
   { month: 'Jan', revenue: 4000, leads: 24 },
   { month: 'Feb', revenue: 3000, leads: 13 },
@@ -91,7 +109,10 @@ export function BentoGridSection() {
                 pipelines. See leads, revenue, and ROI as it happens.
               </p>
             </div>
-            <div className="mt-12 h-64 w-full -ml-4 opacity-80 group-hover:opacity-100 transition-opacity">
+            <motion.div
+              animate={floatAnimation}
+              className="mt-12 h-64 w-full -ml-4 opacity-80 group-hover:opacity-100 transition-opacity"
+            >
               <ResponsiveContainer width="100%" height="100%">
                 <LineChart data={kpiData} margin={{ top: 5, right: 30, left: -10, bottom: 5 }}>
                   <CartesianGrid strokeDasharray="3 3" stroke="hsl(var(--border))" vertical={false} />
@@ -136,7 +157,10 @@ export function BentoGridSection() {
                   We outranked aggregators like ZocDoc, making our client the top local choice and driving massive patient growth.
                 </p>
               </div>
-              <div className="relative z-10 mt-10 grid grid-cols-3 gap-4 text-center font-mono">
+              <motion.div
+                animate={pulseAnimation}
+                className="relative z-10 mt-10 grid grid-cols-3 gap-4 text-center font-mono"
+              >
                 <div className="p-4 bg-primary/5 rounded-2xl border border-primary/10">
                   <p className="text-primary text-2xl font-black italic">349%</p>
                   <p className="text-[10px] text-muted-foreground uppercase font-black tracking-widest mt-1">Growth</p>
@@ -164,7 +188,10 @@ export function BentoGridSection() {
                 <p className="text-muted-foreground text-xl lg:text-2xl mt-4 max-w-4xl font-medium leading-relaxed">This 10-year partnership scaled a local equipment dealer from a single lot to a national volume dealer shipping heavy equipment to 48 states, generating over <span className="text-foreground">$500M in revenue</span>.</p>
                 <p className="text-primary mt-12 border-l-4 border-primary pl-8 text-2xl lg:text-3xl italic font-black tracking-tighter">"They turned us into a major volume dealer simply by using their service."</p>
               </div>
-              <div className="mt-16 pt-16 border-t border-border/50 flex flex-wrap justify-between gap-8 text-center font-mono relative z-10">
+              <motion.div
+                animate={floatAnimation}
+                className="mt-16 pt-16 border-t border-border/50 flex flex-wrap justify-between gap-8 text-center font-mono relative z-10"
+              >
                 <div className="flex-1 min-w-[200px]">
                   <p className="text-primary text-5xl lg:text-7xl font-black italic tracking-tighter">$500M+</p>
                   <p className="text-sm text-muted-foreground uppercase tracking-[0.3em] font-black mt-4">Revenue Growth</p>

@@ -117,9 +117,9 @@ export function ContactSection() {
           </motion.div>
 
           <motion.div variants={itemVariants} className="lg:col-span-7">
-            <div className="bg-transparent lg:p-10 min-h-[500px] lg:min-h-[600px] flex items-center justify-center relative overflow-hidden">
+            <div className="bg-black/40 backdrop-blur-xl border border-primary/20 rounded-[1.5rem] lg:rounded-[2.5rem] p-4 lg:p-8 shadow-[0_0_40px_rgba(249,115,22,0.1)] min-h-[500px] lg:min-h-[600px] flex items-center justify-center relative overflow-hidden group">
 
-              <div className="absolute inset-0 bg-gradient-to-br from-primary/[0.02] to-transparent pointer-events-none" />
+              <div className="absolute inset-0 bg-gradient-to-br from-primary/10 via-transparent to-transparent opacity-50 pointer-events-none group-hover:opacity-100 transition-opacity duration-700" />
               <iframe
                 src="https://api.leadconnectorhq.com/widget/form/FXyD279qmIC0yUDrZfYz"
                 style={{ width: '100%', height: '100%', border: 'none', borderRadius: '4px', minHeight: '600px' }}
@@ -136,7 +136,7 @@ export function ContactSection() {
                 data-layout-iframe-id="inline-FXyD279qmIC0yUDrZfYz"
                 data-form-id="FXyD279qmIC0yUDrZfYz"
                 title="Form 1"
-                className="relative z-10 w-full rounded-[2rem] shadow-2xl opacity-90 hover:opacity-100 transition-opacity duration-500"
+                className="relative z-10 w-full rounded-2xl shadow-2xl bg-black"
               />
               <Script src="https://link.msgsndr.com/js/form_embed.js" strategy="lazyOnload" />
             </div>

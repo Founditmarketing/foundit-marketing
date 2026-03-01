@@ -47,7 +47,7 @@ export default function Home() {
             </p>
             <Link href="/contact">
               <LiquidButton className="h-16 px-10 text-xl tracking-[0.2em]">
-                Proposal in 1 Hour
+                Initiate Strategy
               </LiquidButton>
             </Link>
           </div>

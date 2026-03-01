@@ -235,7 +235,7 @@ export function Header() {
                     </div>
                     <Link href="/contact" className="w-full" onClick={() => setMobileMenuOpen(false)}>
                       <LiquidButton className="w-full py-3 text-xs tracking-[0.2em]">
-                        Proposal in 1 Hour
+                        Initiate Strategy
                       </LiquidButton>
                     </Link>
                     <Button

@@ -42,7 +42,7 @@ export function Footer() {
               <span className="text-primary drop-shadow-[0_0_15px_rgba(249,115,22,0.3)]">We Build Empires.</span>
             </h2>
             <p className="text-base sm:text-lg md:text-2xl text-muted-foreground max-w-2xl font-medium italic border-l-4 border-primary pl-6 leading-relaxed opacity-80">
-              The average agency keeps a client for 8 months. Our partners stay for decades. We build the digital infrastructure for you to dominate.
+              For over 13 years, we've built the Generative Engine Optimization (GEO) infrastructure for local brands to dominate. The average agency keeps a client for 8 months. Our partners stay for decades.
             </p>
           </div>
           <div className="lg:col-span-4 mt-12 lg:mt-0 relative z-10">

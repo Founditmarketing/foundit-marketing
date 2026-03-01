@@ -81,8 +81,7 @@ export function BentoGridSection() {
               Your <span className="text-primary">Unfair</span> Advantage.
             </h2>
             <p className="text-muted-foreground text-xl max-w-2xl font-medium border-l-8 border-primary pl-8 mt-8">
-              We don&apos;t guess, we measure. Our custom data pipelines and AI
-              tools give you a real-time, unfair advantage.
+              For 13 years, we've built the systems that turn local businesses into industry titans. We don&apos;t guess, we measure. Our custom data pipelines and GEO-focused tools give you a real-time, unfair advantage.
             </p>
           </motion.div>
         </div>

@@ -16,7 +16,7 @@ const DynamicBackground = dynamic(
 );
 
 
-import { LucideIcon, Users, DollarSign, Zap } from 'lucide-react';
+import { LucideIcon, Users, DollarSign, Zap, Award } from 'lucide-react';
 import { useRef } from 'react';
 import { useInView } from 'framer-motion';
 
@@ -186,8 +186,7 @@ export function HeroSection() {
                 variants={itemVariants}
                 className="text-lg md:text-2xl text-white/70 mb-12 max-w-2xl border-l-4 border-primary pl-8 font-medium"
               >
-                Found It Marketing is the premier digital marketing agency in the area. You don't need a generic firm, you need an unfair advantage.
-                We build digital empires that render competition irrelevant.
+                For 13 years, Found It Marketing has been the premier digital marketing agency in the area. We build digital empires using Generative Engine Optimization (GEO) to dominate both traditional algorithms and AI search platforms.
               </motion.p>
 
               <motion.div
@@ -233,12 +232,12 @@ export function HeroSection() {
             className="md:col-span-4"
           >
             <StatCard
-              icon={Users}
-              value={2.8}
-              label="Leads & Interactions"
+              icon={Award}
+              value={13}
+              label="Years of Excellence"
               isAnimated={true}
-              suffix="M+"
-              decimals={1}
+              suffix="+"
+              decimals={0}
             />
           </motion.div>
 

@@ -140,7 +140,7 @@ export function BentoGridSection() {
                   />
                 </LineChart>
               </ResponsiveContainer>
-            </div>
+            </motion.div>
           </motion.div>
 
           {/* Medical Case Study: Total Family Solutions - Offset Right */}
@@ -173,7 +173,7 @@ export function BentoGridSection() {
                   <p className="text-primary text-2xl font-black italic">#1</p>
                   <p className="text-[10px] text-muted-foreground uppercase font-black tracking-widest mt-1">LLM</p>
                 </div>
-              </div>
+              </motion.div>
             </Link>
           </motion.div>
 
@@ -204,7 +204,7 @@ export function BentoGridSection() {
                   <p className="text-primary text-5xl lg:text-7xl font-black italic tracking-tighter">10-YR</p>
                   <p className="text-sm text-muted-foreground uppercase tracking-[0.3em] font-black mt-4">Partnership</p>
                 </div>
-              </div>
+              </motion.div>
             </Link>
           </motion.div>
         </motion.div>

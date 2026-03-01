@@ -86,11 +86,11 @@ export function ContactSection() {
           </motion.div>
 
           {/* Form Section - Moved to top on mobile, right side on desktop */}
-          <motion.div variants={itemVariants} className="lg:col-span-7 w-full order-1 lg:order-2 -mx-6 w-[calc(100%+3rem)] lg:mx-0 lg:w-full">
-            <div className="w-full flex items-center justify-center relative bg-card/10 lg:bg-transparent rounded-none p-0 lg:p-0">
+          <motion.div variants={itemVariants} className="lg:col-span-7 w-full order-1 lg:order-2">
+            <div className="w-full relative">
               <iframe
                 src="https://api.leadconnectorhq.com/widget/form/FXyD279qmIC0yUDrZfYz"
-                style={{ width: '100%', height: '100%', border: 'none', borderRadius: '4px', minHeight: '800px', backgroundColor: 'transparent' }}
+                style={{ width: '100%', height: '100%', border: 'none', borderRadius: '4px', backgroundColor: 'transparent' }}
                 id="inline-FXyD279qmIC0yUDrZfYz"
                 data-layout="{'id':'INLINE'}"
                 data-trigger-type="alwaysShow"
@@ -100,7 +100,7 @@ export function ContactSection() {
                 data-deactivation-type="neverDeactivate"
                 data-deactivation-value=""
                 data-form-name="Form 1"
-                data-height="800"
+                data-height="586"
                 data-layout-iframe-id="inline-FXyD279qmIC0yUDrZfYz"
                 data-form-id="FXyD279qmIC0yUDrZfYz"
                 title="Form 1"

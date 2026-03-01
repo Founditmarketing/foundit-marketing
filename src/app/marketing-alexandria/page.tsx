@@ -77,7 +77,7 @@ export default function MarketingAlexandria() {
                             <span className="text-primary">Premier Marketing Agency</span>
                         </h1>
                         <p className="text-xl md:text-2xl text-muted-foreground font-medium max-w-2xl border-l-[6px] border-primary pl-8 mb-8">
-                            You don't need to look to New Orleans or Dallas to find a top-tier marketing agency in the area. We're right here in Cenla, building digital empires from our office at <strong>3803 Rue Left Bank</strong>.
+                            You don't need to look to New Orleans or Dallas to find a top-tier marketing agency. We're right here in Cenla, building digital empires from our office at <strong>3803 Rue Left Bank</strong>.
                         </p>
                         <div className="flex flex-col sm:flex-row gap-6">
                             <Link href="/contact">

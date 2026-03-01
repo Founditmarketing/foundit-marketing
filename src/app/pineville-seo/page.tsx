@@ -72,7 +72,7 @@ export default function PinevilleSEO() {
                             <span className="text-primary">Pineville, LA</span>
                         </h1>
                         <p className="text-xl md:text-2xl text-muted-foreground font-medium max-w-2xl border-l-[6px] border-primary pl-8 mb-8">
-                            Stop losing customers to run-of-the-mill firms. If you're looking for a premier marketing agency in the area, our local SEO and digital strategies are built to dominate the market from our HQ at <strong>3803 Rue Left Bank</strong>.
+                            Stop losing customers to run-of-the-mill firms. If you're looking for a premier marketing agency, our SEO and digital strategies are built to dominate the market from our HQ at <strong>3803 Rue Left Bank</strong>.
                         </p>
                         <div className="flex flex-col sm:flex-row gap-6">
                             <Link href="/contact">

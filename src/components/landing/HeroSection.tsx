@@ -167,7 +167,7 @@ export function HeroSection() {
               <div className="mb-0 py-1 lg:py-2 pl-2 pr-6 text-left w-full">
                 <motion.h1
                   variants={revealVariants}
-                  className="text-white text-[6.5vw] lg:text-[6vw] leading-[0.8] tracking-[-0.04em] font-black font-heading select-none uppercase italic"
+                  className="text-white text-[13vw] sm:text-[10vw] md:text-[8vw] lg:text-[6vw] leading-[0.85] tracking-[-0.04em] font-black font-heading select-none uppercase italic"
                 >
                   <TextScramble text="Stop Competing." delay={100} />
                 </motion.h1>
@@ -176,7 +176,7 @@ export function HeroSection() {
               <div className="mb-0 py-1 lg:py-2 pl-2 pr-6 text-left w-full">
                 <motion.h1
                   variants={revealVariants}
-                  className="text-white text-[7vw] lg:text-[6.5vw] leading-[0.8] tracking-[-0.04em] font-black font-heading select-none uppercase italic pb-4"
+                  className="text-white text-[14vw] sm:text-[11vw] md:text-[8.5vw] lg:text-[6.5vw] leading-[0.85] tracking-[-0.04em] font-black font-heading select-none uppercase italic pb-4 drop-shadow-[0_0_15px_rgba(0,0,0,0.5)]"
                 >
                   <TextScramble text="Start Dominating." delay={450} />
                 </motion.h1>
@@ -184,7 +184,7 @@ export function HeroSection() {
 
               <motion.p
                 variants={itemVariants}
-                className="text-lg md:text-2xl text-white/70 mb-12 max-w-2xl border-l-4 border-primary pl-8 font-medium"
+                className="text-base sm:text-lg md:text-2xl text-white/80 mb-10 max-w-2xl border-l-4 border-primary pl-6 sm:pl-8 font-medium drop-shadow-md bg-black/10 backdrop-blur-[2px] p-2 rounded-r-lg"
               >
                 Found It Marketing is the premier digital marketing agency. You don't need a generic firm, you need an unfair advantage.
                 We build digital empires that render competition irrelevant.
@@ -192,19 +192,19 @@ export function HeroSection() {
 
               <motion.div
                 variants={itemVariants}
-                className="flex flex-col sm:flex-row items-center justify-start gap-6 w-auto"
+                className="flex flex-col sm:flex-row items-start sm:items-center justify-start gap-4 sm:gap-6 w-full sm:w-auto"
               >
-                <Link href="/contact" className="w-auto">
-                  <LiquidButton className="w-auto px-6 sm:px-12 h-20 text-lg sm:text-xl tracking-normal sm:tracking-[0.2em] shadow-2xl shadow-primary/20 hover:scale-105 active:scale-95 transition-transform">
+                <Link href="/contact" className="w-full sm:w-auto">
+                  <LiquidButton className="w-full sm:w-auto px-6 sm:px-12 h-16 sm:h-20 text-base sm:text-xl tracking-normal sm:tracking-[0.2em] shadow-2xl shadow-primary/20 hover:scale-105 active:scale-95 transition-transform">
                     Initiate Dominance
                   </LiquidButton>
                 </Link>
                 <Button
                   asChild
                   variant="ghost"
-                  className="h-20 px-6 sm:px-12 text-xl font-black uppercase italic tracking-tighter border-2 border-primary/10 hover:border-primary/40 hover:bg-primary/5 transition-all w-auto group text-white"
+                  className="h-16 sm:h-20 px-6 sm:px-12 text-base sm:text-xl font-black uppercase italic tracking-tighter border-2 border-primary/10 hover:border-primary/40 hover:bg-primary/5 transition-all w-full sm:w-auto group text-white bg-black/20 backdrop-blur-sm"
                 >
-                  <Link href="/about" className="flex items-center">
+                  <Link href="/about" className="flex items-center justify-center">
                     The Philosophy
                     <motion.span
                       className="inline-block ml-3"

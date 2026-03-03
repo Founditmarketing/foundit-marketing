@@ -17,7 +17,7 @@ export function ClientBackground() {
     if (!mounted) return null;
 
     return (
-        <div className="fixed inset-0 z-[-1] bg-black hidden lg:block">
+        <div className="fixed inset-0 z-[-1] bg-black">
             <iframe
                 src="https://my.spline.design/retrofuturismbganimation-snudBxLoP8IjEgulxeP3n4WQ/"
                 frameBorder="0"

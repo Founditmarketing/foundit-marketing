@@ -80,7 +80,7 @@ export default function MarketingAlexandria() {
                             You don't need to look to New Orleans or Dallas to find a top-tier marketing agency. We're right here in Cenla, building digital empires from our office at <strong>3803 Rue Left Bank</strong>.
                         </p>
                         <div className="flex flex-col sm:flex-row gap-6">
-                            <Link href="/contact">
+                            <Link href="https://marketerhire.typeform.com/to/jIDTK2kL">
                                 <LiquidButton className="h-16 px-10 text-xl tracking-[0.2em] w-full sm:w-auto">
                                     Start Your Growth
                                 </LiquidButton>
@@ -221,7 +221,7 @@ export default function MarketingAlexandria() {
                         <p className="text-muted-foreground text-lg md:text-xl max-w-2xl mx-auto mb-12">
                             Stop letting business go to competitors. Claim your territory in the digital value of Central Louisiana.
                         </p>
-                        <Link href="/contact">
+                        <Link href="https://marketerhire.typeform.com/to/jIDTK2kL">
                             <LiquidButton className="h-16 px-10 text-xl tracking-[0.2em]">
                                 Get Your Local Strategy
                             </LiquidButton>

@@ -75,7 +75,7 @@ export default function PinevilleSEO() {
                             Stop losing customers to run-of-the-mill firms. If you're looking for a premier marketing agency, our SEO and digital strategies are built to dominate the market from our HQ at <strong>3803 Rue Left Bank</strong>.
                         </p>
                         <div className="flex flex-col sm:flex-row gap-6">
-                            <Link href="/contact">
+                            <Link href="https://marketerhire.typeform.com/to/jIDTK2kL">
                                 <LiquidButton className="h-16 px-10 text-xl tracking-[0.2em] w-full sm:w-auto">
                                     Get Your Free Audit
                                 </LiquidButton>
@@ -186,7 +186,7 @@ export default function PinevilleSEO() {
                         <p className="text-muted-foreground text-lg md:text-xl max-w-2xl mx-auto mb-12">
                             Ready to become the go-to business in Pineville? Let's build a strategy that puts you first.
                         </p>
-                        <Link href="/contact">
+                        <Link href="https://marketerhire.typeform.com/to/jIDTK2kL">
                             <LiquidButton className="h-16 px-10 text-xl tracking-[0.2em]">
                                 Claim Pineville Market
                             </LiquidButton>

@@ -75,7 +75,7 @@ export default function CentralLouisianaWebDesign() {
                             Stop settling for generic templates. We build custom, high-performance websites from our Alexandria studio at <strong>3803 Rue Left Bank</strong>.
                         </p>
                         <div className="flex flex-col sm:flex-row gap-6">
-                            <Link href="/contact">
+                            <Link href="https://marketerhire.typeform.com/to/jIDTK2kL">
                                 <LiquidButton className="h-16 px-10 text-xl tracking-[0.2em] w-full sm:w-auto">
                                     Start Your Project
                                 </LiquidButton>
@@ -203,7 +203,7 @@ export default function CentralLouisianaWebDesign() {
                         <p className="text-muted-foreground text-lg md:text-xl max-w-2xl mx-auto mb-12">
                             Your business deserves a website that works as hard as you do. Let's build something world-class, right here in Cenla.
                         </p>
-                        <Link href="/contact">
+                        <Link href="https://marketerhire.typeform.com/to/jIDTK2kL">
                             <LiquidButton className="h-16 px-10 text-xl tracking-[0.2em]">
                                 Schedule Consultation
                             </LiquidButton>

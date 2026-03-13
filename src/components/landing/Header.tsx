@@ -56,8 +56,16 @@ const navLinks = [
     href: '/case-studies',
   },
   {
+    title: 'Blog',
+    href: '/blog',
+  },
+  {
     title: 'About',
-    href: '/about',
+    href: '#',
+    sublinks: [
+      { title: 'Philosophy', href: '/about' },
+      { title: 'The Team', href: '/team' },
+    ],
   },
 ];
 

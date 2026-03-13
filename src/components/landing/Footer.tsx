@@ -77,6 +77,7 @@ export function Footer() {
                 <li><Link href="/seo" className="text-sm md:text-base font-black hover:text-primary transition-all tracking-widest uppercase inline-block">GEO / SEO</Link></li>
                 <li><Link href="/ppc" className="text-sm md:text-base font-black hover:text-primary transition-all tracking-widest uppercase inline-block">PPC</Link></li>
                 <li><Link href="/case-studies" className="text-sm md:text-base font-black hover:text-primary transition-all tracking-widest uppercase inline-block">The Archives</Link></li>
+                <li><Link href="/blog" className="text-sm md:text-base font-black hover:text-primary transition-all tracking-widest uppercase inline-block">Insights & Blog</Link></li>
               </ul>
             </div>
             <div className="space-y-6">
@@ -85,6 +86,7 @@ export function Footer() {
                 <li><Link href="/solutions" className="text-sm md:text-base font-black hover:text-primary transition-all tracking-widest uppercase inline-block">AI Strategist</Link></li>
                 <li><Link href="/ai-visibility-check" className="text-sm md:text-base font-black hover:text-primary transition-all tracking-widest uppercase inline-block">Visibility</Link></li>
                 <li><Link href="/about" className="text-sm md:text-base font-black hover:text-primary transition-all tracking-widest uppercase inline-block">Philosophy</Link></li>
+                <li><Link href="/team" className="text-sm md:text-base font-black hover:text-primary transition-all tracking-widest uppercase inline-block">The Team</Link></li>
               </ul>
             </div>
             <div className="space-y-6">
@@ -100,6 +102,10 @@ export function Footer() {
           <div className="md:col-span-12 lg:col-span-3 flex flex-col lg:items-end">
             <h4 className="font-black text-[10px] uppercase tracking-[0.4em] text-primary mb-8 opacity-60">Global Headquarters</h4>
             <div className="space-y-8 flex flex-col items-start lg:items-end w-full">
+              <p className="text-foreground/80 font-medium text-sm lg:text-right uppercase tracking-widest">
+                3803 Rue Left Bank<br />
+                Alexandria, LA 71303
+              </p>
               <a href={mounted ? phoneHref : '#'} className="flex items-center gap-4 sm:gap-6 text-foreground hover:text-primary transition-all group p-3 sm:p-4 border border-transparent hover:border-primary/20 rounded-2xl sm:rounded-[2rem] hover:bg-primary/5 w-full sm:w-auto overflow-hidden">
                 <div className="p-3 sm:p-4 bg-muted rounded-xl sm:rounded-2xl group-hover:bg-primary/20 transition-colors shrink-0">
                   <Phone className="w-5 h-5 sm:w-6 sm:h-6" strokeWidth={1.5} />
@@ -127,7 +133,7 @@ export function Footer() {
           </p>
           <p className="text-muted-foreground font-mono text-[9px] uppercase tracking-[0.4em] opacity-40">
             <Link href="/solutions" className="hover:text-primary transition-colors">
-              POWERED BY GEMINI PRO 1.5.
+              POWERED BY GEMINI
             </Link>
           </p>
           <p className="text-muted-foreground font-mono text-[9px] uppercase tracking-[0.4em]">

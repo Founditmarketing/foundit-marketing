@@ -129,7 +129,7 @@ export function Footer() {
 
         <div className="border-t border-border/10 pt-12 flex flex-col sm:flex-row justify-between items-center gap-6 text-center sm:text-left">
           <p className="text-muted-foreground font-mono text-[9px] uppercase tracking-[0.4em] opacity-40">
-            © {new Date().getFullYear()} FOUND IT.
+            © {new Date().getFullYear()} FOUND IT. ARCHITECTED BY DATA.
           </p>
           <p className="text-muted-foreground font-mono text-[9px] uppercase tracking-[0.4em] opacity-40">
             <Link href="/solutions" className="hover:text-primary transition-colors">

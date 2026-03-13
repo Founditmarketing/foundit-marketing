@@ -164,19 +164,19 @@ export function HeroSection() {
             className="grid lg:grid-cols-12 gap-12 items-center"
           >
             <div className="lg:col-span-8 relative z-20">
-              <div className="mb-0 py-1 lg:py-2 pl-2 pr-6 text-left w-full">
+              <div className="mb-0 py-1 lg:py-2 text-left w-full">
                 <motion.h1
                   variants={revealVariants}
-                  className="text-white text-[13vw] sm:text-[10vw] md:text-[8vw] lg:text-[6vw] leading-[0.85] tracking-[-0.04em] font-black font-heading select-none uppercase italic"
+                  className="text-white text-[11vw] sm:text-[10vw] md:text-[8vw] lg:text-[6vw] leading-[0.85] tracking-tight font-black font-heading select-none uppercase italic"
                 >
                   <TextScramble text="Stop Competing." delay={100} />
                 </motion.h1>
               </div>
 
-              <div className="mb-0 py-1 lg:py-2 pl-2 pr-6 text-left w-full">
+              <div className="mb-0 py-1 lg:py-2 text-left w-full">
                 <motion.h1
                   variants={revealVariants}
-                  className="text-white text-[14vw] sm:text-[11vw] md:text-[8.5vw] lg:text-[6.5vw] leading-[0.85] tracking-[-0.04em] font-black font-heading select-none uppercase italic pb-4 drop-shadow-[0_0_15px_rgba(0,0,0,0.5)]"
+                  className="text-white text-[11.5vw] sm:text-[11vw] md:text-[8.5vw] lg:text-[6.5vw] leading-[0.85] tracking-tight font-black font-heading select-none uppercase italic pb-4 drop-shadow-[0_0_15px_rgba(0,0,0,0.5)]"
                 >
                   <TextScramble text="Start Dominating." delay={450} />
                 </motion.h1>
@@ -184,7 +184,7 @@ export function HeroSection() {
 
               <motion.p
                 variants={itemVariants}
-                className="text-base sm:text-lg md:text-2xl text-white/80 mb-10 max-w-2xl border-l-4 border-primary pl-6 sm:pl-8 font-medium drop-shadow-md bg-black/10 backdrop-blur-[2px] p-2 rounded-r-lg"
+                className="text-base sm:text-lg md:text-2xl text-white/80 mb-10 max-w-2xl border-l-4 border-primary pl-4 sm:pl-8 font-medium drop-shadow-md bg-black/5 sm:bg-black/10 backdrop-blur-[1px] sm:backdrop-blur-[2px] p-2 rounded-r-lg max-w-[95%] sm:max-w-2xl"
               >
                 Found It Marketing is the premier digital marketing agency. You don't need a generic firm, you need an unfair advantage.
                 We build digital empires that render competition irrelevant.

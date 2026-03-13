@@ -23,7 +23,7 @@ export function ClientBackground() {
                 frameBorder="0"
                 width="100%"
                 height="100%"
-                className="w-full h-[calc(100%+60px)] pointer-events-none absolute bottom-[-60px]"
+                className="w-[150%] max-w-none sm:w-full h-[calc(100%+60px)] pointer-events-none absolute bottom-[-60px] left-1/2 -translate-x-1/2 sm:translate-x-0 sm:left-auto sm:scale-100"
                 loading="lazy"
                 title="Dynamic Background"
             ></iframe>

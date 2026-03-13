@@ -54,7 +54,7 @@ export default function TeamPage() {
                 TEAM SIZE
               </span>
               <p className="text-muted-foreground text-lg uppercase tracking-widest font-bold">
-                40+ Specialists
+                20+ Specialists
               </p>
             </div>
           </div>

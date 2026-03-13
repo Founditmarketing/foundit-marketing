@@ -193,7 +193,7 @@ export function FeasibilityStudyWizard() {
             This AI-powered study is just the first step. Our human experts are ready to turn this strategy into a revenue-generating reality.
           </p>
           <Button asChild size="lg" className="bg-primary text-primary-foreground hover:bg-primary/80 h-14 px-8 text-lg font-bold rounded-xl shadow-lg transition-all hover:shadow-xl hover:-translate-y-1">
-            <Link href="https://marketerhire.typeform.com/to/jIDTK2kL">Book a Strategy Call</Link>
+            <Link href="/contact">Book a Strategy Call</Link>
           </Button>
           <div className="mt-4">
             <Button onClick={() => { setResult(null); setStep(1); setFormData({businessConcept: '', targetMarket: '', uniqueSellingProposition: ''}) }} variant="link">

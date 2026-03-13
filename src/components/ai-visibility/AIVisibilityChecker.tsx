@@ -306,7 +306,7 @@ export function AIVisibilityChecker() {
                     New Analysis
                   </Button>
                   <Button asChild className="h-20 px-12 rounded-2xl font-black italic uppercase tracking-tighter text-xl bg-primary text-primary-foreground shadow-2xl shadow-primary/30 magnetic flex-1">
-                    <a href="https://marketerhire.typeform.com/to/jIDTK2kL">Claim Position</a>
+                    <a href="/contact">Claim Position</a>
                   </Button>
                 </div>
               </motion.div>

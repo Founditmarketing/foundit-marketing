@@ -98,7 +98,7 @@ export default function TeamPage() {
               We're always looking for elite talent to join our Alexandria headquarters. If you speak data fluently, we want to talk.
             </p>
             <a 
-              href="https://marketerhire.typeform.com/to/jIDTK2kL" 
+              href="/contact" 
               className="inline-flex items-center justify-center bg-primary text-primary-foreground font-black uppercase italic tracking-[0.2em] px-12 py-6 rounded-full hover:scale-105 transition-transform"
             >
               View Open Positions

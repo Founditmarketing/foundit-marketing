@@ -266,7 +266,7 @@ export default function CaseStudiesPage() {
               asChild
               className="bg-primary text-primary-foreground font-black h-24 px-16 uppercase italic tracking-tighter text-3xl rounded-[2rem] shadow-2xl shadow-primary/30 hover:scale-[1.05] transition-all magnetic"
             >
-              <Link href="https://marketerhire.typeform.com/to/jIDTK2kL" className="flex items-center gap-4">
+              <Link href="/contact" className="flex items-center gap-4">
                 Initiate Strategy
                 <ArrowRight className="w-10 h-10" />
               </Link>

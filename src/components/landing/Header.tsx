@@ -173,7 +173,7 @@ export function Header() {
                 {mounted ? phoneNumber : '...'}
               </a>
             </Button>
-            <Link href="https://marketerhire.typeform.com/to/jIDTK2kL" className="hidden lg:block">
+            <Link href="/contact" className="hidden lg:block">
               <LiquidButton className="h-14 px-8 text-xs tracking-[0.2em] magnetic transition-colors duration-300 text-white border-white bg-transparent hover:bg-white hover:text-black">
                 Initiate Strategy
               </LiquidButton>
@@ -241,7 +241,7 @@ export function Header() {
                     <div className="flex justify-center">
                       <ThemeSwitcher forceWhite={false} />
                     </div>
-                    <Link href="https://marketerhire.typeform.com/to/jIDTK2kL" className="w-full" onClick={() => setMobileMenuOpen(false)}>
+                    <Link href="/contact" className="w-full" onClick={() => setMobileMenuOpen(false)}>
                       <LiquidButton className="w-full py-3 text-xs tracking-[0.2em]">
                         Initiate Strategy
                       </LiquidButton>

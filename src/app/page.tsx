@@ -45,7 +45,7 @@ export default function Home() {
               Let's talk about your goals. Our experts will create a custom
               proposal to grow your business.
             </p>
-            <Link href="https://marketerhire.typeform.com/to/jIDTK2kL">
+            <Link href="/contact">
               <LiquidButton className="h-16 px-10 text-xl tracking-[0.2em]">
                 Initiate Strategy
               </LiquidButton>

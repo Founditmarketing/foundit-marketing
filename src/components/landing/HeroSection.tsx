@@ -194,7 +194,7 @@ export function HeroSection() {
                 variants={itemVariants}
                 className="flex flex-col sm:flex-row items-start sm:items-center justify-start gap-4 sm:gap-6 w-full sm:w-auto"
               >
-                <Link href="https://marketerhire.typeform.com/to/jIDTK2kL" className="w-full sm:w-auto">
+                <Link href="/contact" className="w-full sm:w-auto">
                   <LiquidButton className="w-full sm:w-auto px-6 sm:px-12 h-16 sm:h-20 text-base sm:text-xl tracking-normal sm:tracking-[0.2em] shadow-2xl shadow-primary/20 hover:scale-105 active:scale-95 transition-transform">
                     Initiate Dominance
                   </LiquidButton>

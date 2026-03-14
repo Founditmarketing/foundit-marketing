@@ -34,7 +34,7 @@ export function LiquidButton({ children, className, type = "button", ...props }:
             whileHover={{ scale: 1.02 }}
             whileTap={{ scale: 0.98 }}
             className={cn(
-                "relative overflow-hidden group px-8 py-4 bg-transparent border-2 border-primary text-primary font-black uppercase italic tracking-tighter rounded-2xl transition-all duration-300 shadow-lg hover:shadow-primary/30 magnetic cursor-pointer flex items-center justify-center disabled:opacity-50 disabled:cursor-not-allowed",
+                "relative overflow-hidden group px-8 py-4 bg-transparent border-2 border-primary text-primary font-black uppercase italic tracking-tighter rounded-2xl transition-all duration-300 shadow-lg hover:shadow-primary/30 magnetic cursor-pointer inline-flex items-center justify-center disabled:opacity-50 disabled:cursor-not-allowed",
                 isHovered && "text-primary-foreground",
                 className
             )}

@@ -103,10 +103,16 @@ export default function RootLayout({
           disableTransitionOnChange
         >
           <SmoothScrollProvider>
-            <Header />
+            <div className="relative z-20">
+              <Header />
+            </div>
             <ClientBackground />
-            {children}
-            <Footer />
+            <div className="relative z-10 flex flex-col min-h-screen">
+              {children}
+            </div>
+            <div className="relative z-10 bg-background/95">
+              <Footer />
+            </div>
             <Toaster />
           </SmoothScrollProvider>
         </ThemeProvider>

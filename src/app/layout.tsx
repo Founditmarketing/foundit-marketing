@@ -13,7 +13,6 @@ const inter = Inter({ subsets: ['latin'], variable: '--font-inter' });
 const outfit = Outfit({ subsets: ['latin'], variable: '--font-outfit' });
 
 import { ClientBackground } from '@/components/landing/ClientBackground';
-import { MobileStickyCtA } from '@/components/landing/MobileStickyCtA';
 
 export const metadata: Metadata = {
   metadataBase: new URL('https://founditmarketing.com'),
@@ -121,7 +120,6 @@ export default function RootLayout({
               <Footer />
             </div>
             <Toaster />
-            <MobileStickyCtA />
           </SmoothScrollProvider>
         </ThemeProvider>
       </body>

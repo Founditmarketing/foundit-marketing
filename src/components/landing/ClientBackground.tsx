@@ -23,7 +23,7 @@ export function ClientBackground() {
                 frameBorder="0"
                 width="100%"
                 height="100%"
-                className="w-[150%] max-w-none md:w-full h-[calc(100%+200px)] md:h-[calc(100%+80px)] pointer-events-none absolute bottom-[-200px] md:bottom-[-80px] left-1/2 -translate-x-1/2 md:translate-x-0 md:left-auto transform-gpu"
+                className="w-[150%] max-w-none md:w-[115%] h-[calc(100%+200px)] md:h-[calc(100%+80px)] pointer-events-none absolute bottom-[-200px] md:bottom-[-80px] left-1/2 -translate-x-1/2 md:-translate-x-[8%] md:left-0 transform-gpu"
                 loading="lazy"
                 title="Dynamic Background"
 

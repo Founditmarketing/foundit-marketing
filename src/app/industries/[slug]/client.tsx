@@ -13,21 +13,21 @@ import {
 } from 'lucide-react';
 import type { IndustryData } from './data';
 
-const liquidEasing = [0.16, 1, 0.3, 1] as const;
+const ease = [0.22, 1, 0.36, 1]; // Apple cinematic glide
 
 const containerVariants: Variants = {
   hidden: { opacity: 0 },
   visible: {
     opacity: 1,
-    transition: { staggerChildren: 0.15, delayChildren: 0.1 },
+    transition: { staggerChildren: 0.12, delayChildren: 0.05 },
   },
 };
 
 const itemVariants: Variants = {
-  hidden: { y: 40, opacity: 0, filter: 'blur(10px)' },
+  hidden: { y: 50, opacity: 0, filter: 'blur(4px)' },
   visible: {
     y: 0, opacity: 1, filter: 'blur(0px)',
-    transition: { ease: liquidEasing as any, duration: 1 },
+    transition: { ease: ease as any, duration: 1.1 },
   },
 };
 

@@ -101,9 +101,9 @@ export function Header() {
 
   return (
     <motion.header
-      initial={{ y: -20, opacity: 0 }}
-      animate={{ y: 0, opacity: 1 }}
-      transition={{ delay: 2.4, duration: 1.0, ease: [0.16, 1, 0.3, 1] }}
+      initial={{ y: -30, opacity: 0, filter: 'blur(4px)' }}
+      animate={{ y: 0, opacity: 1, filter: 'blur(0px)' }}
+      transition={{ delay: 0.8, duration: 1.2, ease: [0.22, 1, 0.36, 1] }}
       className={cn(
         'fixed inset-x-0 top-0 z-50 w-full transition-all duration-700 ease-liquid',
         isScrolled

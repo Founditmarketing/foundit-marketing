@@ -1,0 +1,4 @@
+User-agent: *
+Allow: /
+
+Sitemap: https://founditmarketing.com/sitemap.xml

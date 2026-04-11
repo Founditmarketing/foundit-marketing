@@ -1,0 +1,37 @@
+# Found It Marketing
+
+> Digital Marketing Agency in Alexandria, Louisiana building digital empires through Generative Engine Optimization (GEO) and high-velocity paid acquisition.
+
+## Identity
+- **Name**: Found It Marketing
+- **Location**: Alexandria, LA (Central Louisiana)
+- **Tagline**: Building Digital Empires
+- **Phone**: +1-318-280-0115
+- **Email**: trevor@founditmarketing.com
+- **Website**: https://founditmarketing.com
+
+## Core Services
+
+### Generative Engine Optimization (GEO)
+- Optimization for AI-driven search engines (Google SGE, ChatGPT, Perplexity).
+- Focus on answer engine optimization, entity authority, and structured data dominance.
+- Beyond traditional SEO: targeting the "Zero Click" future.
+
+### High-Velocity Paid Acquisition (PPC)
+- Aggressive, data-driven ad scaling.
+- Platforms: Google Ads, Meta Ads (Facebook/Instagram), YouTube Ads.
+- Focus on ROAS (Return on Ad Spend) and rapid market capture.
+
+### Web Design & Development
+- "Silent Luxury" aesthetic: High-end, minimalist, impact-driven design.
+- Technologies: Next.js, React, Tailwind CSS, Framer Motion.
+- Performance-first: 100/100 Core Web Vitals focus.
+
+## Service Areas
+- Alexandria, LA
+- Pineville, LA
+- Central Louisiana (CenLa)
+- Statewide & National Capability
+
+## Mission
+To help businesses stop competing and start dominating their market by leveraging the latest shifts in AI and digital marketing technology.

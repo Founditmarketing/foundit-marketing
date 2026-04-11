@@ -8,7 +8,7 @@ import {
   DropdownMenuTrigger,
 } from '@/components/ui/dropdown-menu';
 import { cn } from '@/lib/utils';
-import { ChevronDown, Phone, X, ArrowRight, ChevronRight } from 'lucide-react';
+import { ChevronDown, Phone, X, ArrowRight, ChevronRight, Cpu, Globe, TrendingUp, Building2, Users } from 'lucide-react';
 import Link from 'next/link';
 import * as React from 'react';
 import { useRouter, usePathname } from 'next/navigation';
@@ -22,13 +22,13 @@ const navLinks = [
   {
     title: 'FoundIt OS™',
     href: '/platform',
-    icon: '⚡',
+    icon: Cpu,
     description: 'Our proprietary intelligence platform',
   },
   {
     title: 'Websites',
     href: '/web-development',
-    icon: '🌐',
+    icon: Globe,
     description: 'Tiered web design packages',
     sublinks: [
       { title: 'Ignite', href: '/websites/ignite', tag: 'Starter' },
@@ -41,13 +41,13 @@ const navLinks = [
   {
     title: 'Marketing',
     href: '/marketing',
-    icon: '📈',
+    icon: TrendingUp,
     description: 'Full-funnel marketing packages',
   },
   {
     title: 'Industries',
     href: '#',
-    icon: '🏢',
+    icon: Building2,
     description: 'Vertical-specific strategies',
     sublinks: [
       { title: 'Medical / Healthcare', href: '/industries/medical', tag: null },
@@ -61,7 +61,7 @@ const navLinks = [
   {
     title: 'Company',
     href: '#',
-    icon: '🏛️',
+    icon: Users,
     description: 'Who we are & what we stand for',
     sublinks: [
       { title: 'About', href: '/about', tag: null },
@@ -177,8 +177,8 @@ function MobileNavItem({
               : 'hover:bg-white/5 border border-transparent'
           )}
         >
-          <span className="text-2xl w-10 h-10 flex items-center justify-center rounded-xl bg-white/5 group-hover:bg-primary/10 transition-colors shrink-0">
-            {link.icon}
+          <span className="w-10 h-10 flex items-center justify-center rounded-xl bg-primary/10 border border-primary/20 group-hover:bg-primary/20 transition-colors shrink-0">
+            <link.icon className="w-5 h-5 text-primary" strokeWidth={1.5} />
           </span>
           <div className="flex-1 min-w-0">
             <span
@@ -216,8 +216,8 @@ function MobileNavItem({
             : 'hover:bg-white/5 border border-transparent'
         )}
       >
-        <span className="text-2xl w-10 h-10 flex items-center justify-center rounded-xl bg-white/5 group-hover:bg-primary/10 transition-colors shrink-0">
-          {link.icon}
+        <span className="w-10 h-10 flex items-center justify-center rounded-xl bg-primary/10 border border-primary/20 group-hover:bg-primary/20 transition-colors shrink-0">
+          <link.icon className="w-5 h-5 text-primary" strokeWidth={1.5} />
         </span>
         <div className="flex-1 min-w-0 text-left">
           <span
@@ -307,6 +307,8 @@ export function Header() {
     }
   };
 
+  const menuPanelRef = React.useRef<HTMLDivElement>(null);
+
   React.useEffect(() => {
     setMounted(true);
     const handleScroll = () => {
@@ -316,14 +318,65 @@ export function Header() {
     return () => window.removeEventListener('scroll', handleScroll);
   }, []);
 
-  // Lock body scroll when menu is open
+  // Escape key to close menu
+  React.useEffect(() => {
+    if (!mobileMenuOpen) return;
+    const handleEscape = (e: KeyboardEvent) => {
+      if (e.key === 'Escape') setMobileMenuOpen(false);
+    };
+    window.addEventListener('keydown', handleEscape);
+    return () => window.removeEventListener('keydown', handleEscape);
+  }, [mobileMenuOpen]);
+
+  // Focus trap: keep Tab within the menu panel
+  React.useEffect(() => {
+    if (!mobileMenuOpen || !menuPanelRef.current) return;
+    const panel = menuPanelRef.current;
+    const focusableSelector = 'a[href], button, input, textarea, select, [tabindex]:not([tabindex="-1"])';
+    const handleTrap = (e: KeyboardEvent) => {
+      if (e.key !== 'Tab') return;
+      const focusable = Array.from(panel.querySelectorAll(focusableSelector)) as HTMLElement[];
+      if (focusable.length === 0) return;
+      const first = focusable[0];
+      const last = focusable[focusable.length - 1];
+      if (e.shiftKey && document.activeElement === first) {
+        e.preventDefault();
+        last.focus();
+      } else if (!e.shiftKey && document.activeElement === last) {
+        e.preventDefault();
+        first.focus();
+      }
+    };
+    window.addEventListener('keydown', handleTrap);
+    // Auto-focus first focusable element
+    const firstFocusable = panel.querySelector(focusableSelector) as HTMLElement | null;
+    firstFocusable?.focus();
+    return () => window.removeEventListener('keydown', handleTrap);
+  }, [mobileMenuOpen]);
+
+  // Lock body scroll when menu is open (position:fixed prevents iOS scroll-through)
   React.useEffect(() => {
     if (mobileMenuOpen) {
+      const scrollY = window.scrollY;
+      document.body.style.position = 'fixed';
+      document.body.style.top = `-${scrollY}px`;
+      document.body.style.left = '0';
+      document.body.style.right = '0';
       document.body.style.overflow = 'hidden';
     } else {
+      const scrollY = document.body.style.top;
+      document.body.style.position = '';
+      document.body.style.top = '';
+      document.body.style.left = '';
+      document.body.style.right = '';
       document.body.style.overflow = '';
+      window.scrollTo(0, parseInt(scrollY || '0') * -1);
     }
     return () => {
+      document.body.style.position = '';
+      document.body.style.top = '';
+      document.body.style.left = '';
+      document.body.style.right = '';
       document.body.style.overflow = '';
     };
   }, [mobileMenuOpen]);
@@ -427,6 +480,8 @@ export function Header() {
               onClick={() => setMobileMenuOpen(!mobileMenuOpen)}
               className="lg:hidden relative z-[60] w-11 h-11 flex items-center justify-center rounded-xl transition-colors hover:bg-white/10 active:scale-95"
               aria-label={mobileMenuOpen ? 'Close menu' : 'Open menu'}
+              aria-expanded={mobileMenuOpen}
+              aria-controls="mobile-nav-panel"
             >
               <HamburgerIcon isOpen={mobileMenuOpen} />
             </button>
@@ -455,6 +510,11 @@ export function Header() {
             {/* Menu Panel */}
             <motion.div
               key="menu"
+              ref={menuPanelRef}
+              id="mobile-nav-panel"
+              role="dialog"
+              aria-modal="true"
+              aria-label="Mobile navigation"
               variants={menuVariants}
               initial="closed"
               animate="open"
@@ -465,8 +525,16 @@ export function Header() {
               <div className="absolute top-0 left-0 w-full h-64 bg-gradient-to-b from-primary/[0.06] to-transparent pointer-events-none" />
               <div className="absolute bottom-0 left-0 w-full h-48 bg-gradient-to-t from-primary/[0.04] to-transparent pointer-events-none" />
 
-              {/* ─── Top Spacing (below fixed header) ─── */}
-              <div className="h-20 shrink-0" />
+              {/* ─── Close Button + Top Spacing ─── */}
+              <div className="h-20 shrink-0 flex items-center justify-end px-5">
+                <button
+                  onClick={() => setMobileMenuOpen(false)}
+                  className="w-10 h-10 flex items-center justify-center rounded-xl bg-white/5 hover:bg-white/10 transition-colors"
+                  aria-label="Close menu"
+                >
+                  <X className="w-5 h-5 text-muted-foreground" />
+                </button>
+              </div>
 
               {/* ─── Navigation Links ─── */}
               <motion.div

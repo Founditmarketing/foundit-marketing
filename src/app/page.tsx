@@ -56,7 +56,7 @@ export default function Home() {
       </ScrollReveal>
 
       {/* S7: Closing CTA — Mirror Hero */}
-      <section className="bg-background text-foreground py-24 lg:py-32 relative overflow-hidden border-t border-border/10">
+      <section className="bg-background text-foreground py-12 sm:py-24 lg:py-32 pb-24 sm:pb-24 relative overflow-hidden border-t border-border/10">
         <ScrollReveal direction="up" distance={30}>
           <div className="max-w-3xl mx-auto px-6 relative z-10 text-center">
             <h2 className="text-3xl sm:text-4xl lg:text-5xl font-black uppercase italic tracking-tighter mb-4 text-primary">

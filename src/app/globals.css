@@ -108,11 +108,13 @@
   }
 
   .text-oversized {
-    @apply text-[7vw] lg:text-[8vw] leading-[0.9] tracking-tighter font-black font-heading select-none;
+    font-size: clamp(2rem, 7vw, 8vw);
+    @apply leading-[0.9] tracking-tighter font-black font-heading select-none;
   }
 
   .text-oversized-ultimate {
-    @apply text-[11vw] lg:text-[6vw] leading-[0.8] tracking-[-0.04em] font-black font-heading select-none uppercase italic;
+    font-size: clamp(2.5rem, 11vw, 6vw);
+    @apply leading-[0.8] tracking-[-0.04em] font-black font-heading select-none uppercase italic;
   }
 
   .blur-blob {

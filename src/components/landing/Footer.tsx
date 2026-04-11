@@ -23,7 +23,7 @@ export function Footer() {
   const phoneHref = 'tel:3182800115';
 
   return (
-    <footer className="bg-background text-foreground pt-24 pb-8 relative overflow-hidden border-t border-border/10">
+    <footer className="bg-background text-foreground pt-12 sm:pt-24 pb-20 sm:pb-8 relative overflow-hidden border-t border-border/10">
       <div className="absolute inset-0 bg-[radial-gradient(circle_at_top,rgba(249,115,22,0.03)_0%,transparent_60%)] pointer-events-none" />
 
       <div className="max-w-[1440px] mx-auto px-6 relative z-10">
@@ -73,30 +73,30 @@ export function Footer() {
             <div className="space-y-6">
               <h4 className="font-black text-[10px] uppercase tracking-[0.4em] text-primary opacity-60">Websites</h4>
               <ul className="space-y-4 flex flex-col items-start">
-                <li><Link href="/websites/ignite" className="text-sm md:text-base font-black hover:text-primary transition-all tracking-widest uppercase inline-block">Ignite</Link></li>
-                <li><Link href="/websites/accelerate" className="text-sm md:text-base font-black hover:text-primary transition-all tracking-widest uppercase inline-block">Accelerate</Link></li>
-                <li><Link href="/websites/dominate" className="text-sm md:text-base font-black hover:text-primary transition-all tracking-widest uppercase inline-block">Dominate</Link></li>
-                <li><Link href="/websites/empire" className="text-sm md:text-base font-black hover:text-primary transition-all tracking-widest uppercase inline-block">Empire</Link></li>
-                <li><Link href="/web-development" className="text-sm md:text-base font-black hover:text-primary transition-all tracking-widest uppercase inline-block">Our Work</Link></li>
+                <li><Link href="/websites/ignite" className="text-sm md:text-base font-black hover:text-primary transition-all tracking-widest uppercase inline-block min-h-[44px] flex items-center">Ignite</Link></li>
+                <li><Link href="/websites/accelerate" className="text-sm md:text-base font-black hover:text-primary transition-all tracking-widest uppercase inline-block min-h-[44px] flex items-center">Accelerate</Link></li>
+                <li><Link href="/websites/dominate" className="text-sm md:text-base font-black hover:text-primary transition-all tracking-widest uppercase inline-block min-h-[44px] flex items-center">Dominate</Link></li>
+                <li><Link href="/websites/empire" className="text-sm md:text-base font-black hover:text-primary transition-all tracking-widest uppercase inline-block min-h-[44px] flex items-center">Empire</Link></li>
+                <li><Link href="/web-development" className="text-sm md:text-base font-black hover:text-primary transition-all tracking-widest uppercase inline-block min-h-[44px] flex items-center">Our Work</Link></li>
               </ul>
             </div>
             <div className="space-y-6">
               <h4 className="font-black text-[10px] uppercase tracking-[0.4em] text-primary opacity-60">Marketing</h4>
               <ul className="space-y-4 flex flex-col items-start">
-                <li><Link href="/marketing" className="text-sm md:text-base font-black hover:text-primary transition-all tracking-widest uppercase inline-block">Packages</Link></li>
-                <li><Link href="/platform" className="text-sm md:text-base font-black hover:text-primary transition-all tracking-widest uppercase inline-block">FoundIt OS™</Link></li>
-                <li><Link href="/case-studies" className="text-sm md:text-base font-black hover:text-primary transition-all tracking-widest uppercase inline-block">Case Studies</Link></li>
-                <li><Link href="/blog" className="text-sm md:text-base font-black hover:text-primary transition-all tracking-widest uppercase inline-block">Blog</Link></li>
+                <li><Link href="/marketing" className="text-sm md:text-base font-black hover:text-primary transition-all tracking-widest uppercase inline-block min-h-[44px] flex items-center">Packages</Link></li>
+                <li><Link href="/platform" className="text-sm md:text-base font-black hover:text-primary transition-all tracking-widest uppercase inline-block min-h-[44px] flex items-center">FoundIt OS™</Link></li>
+                <li><Link href="/case-studies" className="text-sm md:text-base font-black hover:text-primary transition-all tracking-widest uppercase inline-block min-h-[44px] flex items-center">Case Studies</Link></li>
+                <li><Link href="/blog" className="text-sm md:text-base font-black hover:text-primary transition-all tracking-widest uppercase inline-block min-h-[44px] flex items-center">Blog</Link></li>
               </ul>
             </div>
             <div className="space-y-6">
               <h4 className="font-black text-[10px] uppercase tracking-[0.4em] text-primary opacity-60">Industries</h4>
               <ul className="space-y-4 flex flex-col items-start">
-                <li><Link href="/industries/medical" className="text-sm md:text-base font-black hover:text-primary transition-all tracking-widest uppercase inline-block">Medical</Link></li>
-                <li><Link href="/industries/contractors" className="text-sm md:text-base font-black hover:text-primary transition-all tracking-widest uppercase inline-block">Contractors</Link></li>
-                <li><Link href="/industries/dealerships" className="text-sm md:text-base font-black hover:text-primary transition-all tracking-widest uppercase inline-block">Dealerships</Link></li>
-                <li><Link href="/industries/realtors" className="text-sm md:text-base font-black hover:text-primary transition-all tracking-widest uppercase inline-block">Real Estate</Link></li>
-                <li><Link href="/industries/lawyers" className="text-sm md:text-base font-black hover:text-primary transition-all tracking-widest uppercase inline-block">Lawyers</Link></li>
+                <li><Link href="/industries/medical" className="text-sm md:text-base font-black hover:text-primary transition-all tracking-widest uppercase inline-block min-h-[44px] flex items-center">Medical</Link></li>
+                <li><Link href="/industries/contractors" className="text-sm md:text-base font-black hover:text-primary transition-all tracking-widest uppercase inline-block min-h-[44px] flex items-center">Contractors</Link></li>
+                <li><Link href="/industries/dealerships" className="text-sm md:text-base font-black hover:text-primary transition-all tracking-widest uppercase inline-block min-h-[44px] flex items-center">Dealerships</Link></li>
+                <li><Link href="/industries/realtors" className="text-sm md:text-base font-black hover:text-primary transition-all tracking-widest uppercase inline-block min-h-[44px] flex items-center">Real Estate</Link></li>
+                <li><Link href="/industries/lawyers" className="text-sm md:text-base font-black hover:text-primary transition-all tracking-widest uppercase inline-block min-h-[44px] flex items-center">Lawyers</Link></li>
               </ul>
             </div>
           </div>
@@ -115,13 +115,13 @@ export function Footer() {
                 <span className="font-black text-2xl sm:text-3xl lg:text-4xl italic tracking-tighter truncate">{mounted ? phoneNumber : '...'}</span>
               </a>
               <div className="flex items-center gap-6 sm:gap-8 pt-4 px-2">
-                <a href="https://linkedin.com" target="_blank" rel="noopener noreferrer" className="text-muted-foreground hover:text-primary transition-all hover:scale-110">
+                <a href="https://linkedin.com" target="_blank" rel="noopener noreferrer" className="text-muted-foreground hover:text-primary transition-all hover:scale-110 p-2 -m-2 min-w-[44px] min-h-[44px] flex items-center justify-center">
                   <Linkedin className="w-5 h-5" strokeWidth={1.5} />
                 </a>
-                <a href="https://twitter.com" target="_blank" rel="noopener noreferrer" className="text-muted-foreground hover:text-primary transition-all hover:scale-110">
+                <a href="https://twitter.com" target="_blank" rel="noopener noreferrer" className="text-muted-foreground hover:text-primary transition-all hover:scale-110 p-2 -m-2 min-w-[44px] min-h-[44px] flex items-center justify-center">
                   <Twitter className="w-5 h-5" strokeWidth={1.5} />
                 </a>
-                <a href="https://youtube.com" target="_blank" rel="noopener noreferrer" className="text-muted-foreground hover:text-primary transition-all hover:scale-110">
+                <a href="https://youtube.com" target="_blank" rel="noopener noreferrer" className="text-muted-foreground hover:text-primary transition-all hover:scale-110 p-2 -m-2 min-w-[44px] min-h-[44px] flex items-center justify-center">
                   <Youtube className="w-5 h-5" strokeWidth={1.5} />
                 </a>
               </div>

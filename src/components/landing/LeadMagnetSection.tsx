@@ -33,7 +33,7 @@ export function LeadMagnetSection() {
   };
 
   return (
-    <section className="bg-background py-24 lg:py-32 overflow-hidden relative border-t border-border/10">
+    <section className="bg-background py-12 sm:py-24 lg:py-32 overflow-hidden relative border-t border-border/10">
       <div className="max-w-[1440px] mx-auto px-6 relative z-10">
         {/* Decorative */}
         <div className="blur-blob w-[500px] h-[500px] bg-primary/10 bottom-0 right-0" />

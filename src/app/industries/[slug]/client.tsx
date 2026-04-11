@@ -58,7 +58,7 @@ const platformFeatures = [
 /* ─── The Component ─── */
 export default function IndustryPageClient({ data }: { data: IndustryData }) {
   return (
-    <main className="pt-32 lg:pt-40">
+    <main className="pt-32 lg:pt-40 overflow-x-hidden">
       {/* ── S1: Hero ── */}
       <section className="pb-24 lg:pb-32 border-b border-border/10">
         <div className="max-w-[1440px] mx-auto px-6">
@@ -77,12 +77,12 @@ export default function IndustryPageClient({ data }: { data: IndustryData }) {
             </p>
             <div className="flex flex-col sm:flex-row items-start sm:items-center gap-6 sm:gap-12">
               <Link href="/contact">
-                <LiquidButton className="h-16 px-10 text-xl tracking-[0.15em]">
+                <LiquidButton className="h-14 sm:h-16 px-8 sm:px-10 text-base sm:text-xl tracking-[0.1em] sm:tracking-[0.15em]">
                   {data.ctaText}
                 </LiquidButton>
               </Link>
               <div className="flex items-center gap-6">
-                <span className="text-primary text-5xl lg:text-6xl font-black italic leading-none tracking-tighter">
+                <span className="text-primary text-4xl sm:text-5xl lg:text-6xl font-black italic leading-none tracking-tighter">
                   {data.heroStat.value}
                 </span>
                 <span className="text-muted-foreground text-sm uppercase tracking-widest font-bold max-w-[120px] leading-tight">
@@ -289,14 +289,14 @@ export default function IndustryPageClient({ data }: { data: IndustryData }) {
             initial="hidden"
             whileInView="visible"
             viewport={{ once: true, margin: '-50px' }}
-            className="grid grid-cols-2 lg:grid-cols-3 gap-6"
+            className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4 sm:gap-6"
           >
             {platformFeatures.map((feat) => {
               const FeatIcon = feat.icon;
               return (
                 <motion.div key={feat.title} variants={itemVariants}>
                   <Link href="/platform" className="block group">
-                    <div className="bg-card border border-border/40 p-6 lg:p-8 rounded-[1.5rem] hover:border-primary/50 transition-all duration-500 flex items-start gap-4">
+                    <div className="bg-card border border-border/40 p-5 sm:p-6 lg:p-8 rounded-[1.5rem] hover:border-primary/50 transition-all duration-500 flex items-center sm:items-start gap-3 sm:gap-4">
                       <div className="p-3 bg-primary/10 rounded-xl border border-primary/20 shrink-0 group-hover:bg-primary/20 transition-colors">
                         <FeatIcon className="w-5 h-5 text-primary" strokeWidth={1.5} />
                       </div>
@@ -324,7 +324,7 @@ export default function IndustryPageClient({ data }: { data: IndustryData }) {
               {data.name.toLowerCase()} industry. No pressure, no obligations.
             </p>
             <Link href="/contact">
-              <LiquidButton className="h-16 px-10 text-xl tracking-[0.15em]">
+              <LiquidButton className="h-14 sm:h-16 px-8 sm:px-10 text-base sm:text-xl tracking-[0.1em] sm:tracking-[0.15em]">
                 {data.ctaText}
               </LiquidButton>
             </Link>

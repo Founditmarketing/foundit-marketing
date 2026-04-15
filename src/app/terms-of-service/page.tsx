@@ -10,8 +10,8 @@ export default function TermsOfService() {
         <main className="min-h-screen bg-background text-foreground pt-32 pb-20 px-6">
             <div className="max-w-4xl mx-auto space-y-12">
                 <div className="space-y-4">
-                    <h1 className="text-4xl md:text-5xl font-black uppercase italic tracking-tighter">Terms of Service</h1>
-                    <p className="text-muted-foreground">Effective Date: April 14, 2026</p>
+                    <h1 className="text-4xl md:text-5xl font-black uppercase italic tracking-tighter">📄 Terms of Service</h1>
+                    <p className="text-muted-foreground">Effective Date: April 15, 2026</p>
                     <p className="text-lg leading-relaxed text-muted-foreground mt-4">
                         Welcome to Found It Marketing LLC ("Company," "we," "our," or "us"). By accessing or using our website, services, or communication channels (including SMS), you agree to the following Terms of Service.
                     </p>
@@ -41,7 +41,7 @@ export default function TermsOfService() {
                             <li>CRM and automation setup</li>
                             <li>Marketing consulting</li>
                         </ul>
-                        <p>Scope of services will be defined in individual agreements, proposals, or invoices.</p>
+                        <p>The scope of services will be defined in individual agreements, proposals, or invoices.</p>
                     </div>
                 </section>
 
@@ -60,30 +60,33 @@ export default function TermsOfService() {
                     <h2 className="text-2xl font-black uppercase tracking-wide text-primary">4. Intellectual Property</h2>
                     <div className="prose dark:prose-invert max-w-none space-y-4 text-lg leading-relaxed text-muted-foreground">
                         <p>All content, branding, and materials created by Found It Marketing LLC remain the property of the Company unless otherwise agreed upon in writing.</p>
-                        <p>Clients are granted a limited license to use deliverables for their business purposes.</p>
+                        <p>Clients are granted a limited, non-exclusive license to use deliverables for business purposes.</p>
                     </div>
                 </section>
 
                 <section className="space-y-6">
                     <h2 className="text-2xl font-black uppercase tracking-wide text-primary">5. SMS Communications & Consent</h2>
                     <div className="prose dark:prose-invert max-w-none space-y-4 text-lg leading-relaxed text-muted-foreground">
-                        <p>By submitting your phone number through our website or forms, you consent to receive SMS messages from Found It Marketing LLC, which may include:</p>
+                        <p>By submitting your phone number through our website or forms, you consent to receive SMS messages from Found It Marketing LLC related to your inquiry or service request.</p>
+                        <p>These messages may include:</p>
                         <ul className="list-disc pl-6 space-y-2">
                             <li>Appointment reminders</li>
                             <li>Service updates</li>
                             <li>Customer support messages</li>
                             <li>Follow-ups regarding inquiries</li>
-                            <li>Marketing messages (if opted in)</li>
                         </ul>
+                        <p>Marketing messages will only be sent if you provide separate, explicit consent.</p>
                         <h3 className="text-xl font-bold text-foreground mt-4">SMS Terms:</h3>
                         <ul className="list-disc pl-6 space-y-2">
                             <li>Message frequency may vary</li>
                             <li>Message and data rates may apply</li>
                             <li>Consent is not a condition of purchase</li>
-                            <li>Reply STOP to opt out at any time</li>
-                            <li>Reply HELP for assistance</li>
+                            <li>You can opt out at any time by replying STOP</li>
+                            <li>For assistance, reply HELP</li>
                         </ul>
                         <p>We only send messages to users who have provided clear and explicit consent.</p>
+                        <p>Carriers are not liable for delayed or undelivered messages.</p>
+                        <p>You must be at least 18 years old or have permission from a parent or guardian to receive SMS communications.</p>
                     </div>
                 </section>
 
@@ -111,7 +114,7 @@ export default function TermsOfService() {
                 <section className="space-y-6">
                     <h2 className="text-2xl font-black uppercase tracking-wide text-primary">8. Indemnification</h2>
                     <div className="prose dark:prose-invert max-w-none space-y-4 text-lg leading-relaxed text-muted-foreground">
-                        <p>You agree to indemnify and hold harmless Found It Marketing LLC from any claims, damages, or expenses arising from your use of our services or violation of these terms.</p>
+                        <p>You agree to indemnify and hold harmless Found It Marketing LLC from any claims, damages, or expenses arising from your use of our services or violation of these Terms.</p>
                     </div>
                 </section>
 
@@ -137,7 +140,7 @@ export default function TermsOfService() {
                 <section className="space-y-6">
                     <h2 className="text-2xl font-black uppercase tracking-wide text-primary">11. Privacy Policy</h2>
                     <div className="prose dark:prose-invert max-w-none space-y-4 text-lg leading-relaxed text-muted-foreground">
-                        <p>Your use of our services is also governed by our Privacy Policy. Please review it here: <br/><a href="https://founditmarketing.com/privacy-policy" className="text-primary hover:underline">https://founditmarketing.com/privacy-policy</a></p>
+                        <p>Your use of our services is also governed by our Privacy Policy:<br/>👉 <a href="https://founditmarketing.com/privacy-policy" className="text-primary hover:underline">https://founditmarketing.com/privacy-policy</a></p>
                     </div>
                 </section>
 
@@ -153,9 +156,9 @@ export default function TermsOfService() {
                     <div className="prose dark:prose-invert max-w-none space-y-4 text-lg leading-relaxed text-muted-foreground">
                         <div className="font-semibold text-foreground">
                             <p>Found It Marketing LLC</p>
-                            <p>Phone: (678) 431-0705</p>
-                            <p>Email: <a href="mailto:info@founditmarketing.com" className="text-primary hover:underline">info@founditmarketing.com</a></p>
-                            <p>Website: <a href="https://founditmarketing.com" className="text-primary hover:underline">https://founditmarketing.com</a></p>
+                            <p>📞 (678) 431-0705</p>
+                            <p>📧 <a href="mailto:info@founditmarketing.com" className="text-primary hover:underline">info@founditmarketing.com</a></p>
+                            <p>🌐 <a href="https://founditmarketing.com" className="text-primary hover:underline">https://founditmarketing.com</a></p>
                         </div>
                     </div>
                 </section>
@@ -163,4 +166,3 @@ export default function TermsOfService() {
         </main>
     );
 }
-

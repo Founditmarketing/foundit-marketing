@@ -31,7 +31,6 @@ const PLANS = [
       'Website Design, Management, Hosting, Backups, Security & SSL',
       'Search Engine Optimization & Listing Directories',
       'Google Business Profile Management',
-      'Google Ads, PPC & Google Local Services',
     ],
   },
   {
@@ -59,6 +58,7 @@ const PLANS = [
       'Google Business Profile Management',
       'Social Media Management, Graphics Production & Scheduled Posting',
       'Targeted Ads',
+      'Google Ads, PPC & Google Local Services',
     ],
   },
   {

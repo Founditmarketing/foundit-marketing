@@ -14,6 +14,8 @@ export type PaymentIntentResult = {
 };
 
 export async function createPaymentIntent(formData: FormData): Promise<PaymentIntentResult> {
+  if (!process.env.STRIPE_SECRET_KEY) throw new Error('Stripe is not configured.');
+
   const planId = formData.get('planId') as string;
   const firstName = formData.get('firstName') as string;
   const lastName = formData.get('lastName') as string;
@@ -31,6 +33,8 @@ export async function createPaymentIntent(formData: FormData): Promise<PaymentIn
     phone,
     metadata: { business_name: businessName, plan_id: plan.id },
   });
+
+  console.log('[checkout] customer created:', customer.id);
 
   // Create subscription in incomplete state — generates a PaymentIntent
   const subscription = await stripe.subscriptions.create({
@@ -59,6 +63,8 @@ export async function createPaymentIntent(formData: FormData): Promise<PaymentIn
   const invoice = subscription.latest_invoice as any;
   // eslint-disable-next-line @typescript-eslint/no-explicit-any
   const paymentIntent = invoice?.payment_intent as any;
+
+  console.log('[checkout] subscription created:', subscription.id, 'has secret:', !!paymentIntent?.client_secret);
 
   if (!paymentIntent?.client_secret) {
     throw new Error('Failed to initialize payment. Please try again.');

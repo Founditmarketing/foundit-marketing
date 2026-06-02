@@ -36,17 +36,23 @@ export async function createPaymentIntent(formData: FormData): Promise<PaymentIn
 
   console.log('[checkout] customer created:', customer.id);
 
+  // Create a product for this plan
+  const product = await stripe.products.create({
+    name: plan.name,
+    description: plan.subtitle,
+  });
+
   // Create subscription in incomplete state — generates a PaymentIntent
   const subscription = await stripe.subscriptions.create({
     customer: customer.id,
     items: [
       {
-        // eslint-disable-next-line @typescript-eslint/no-explicit-any
         price_data: {
           currency: 'usd',
-          product_data: { name: plan.name, description: plan.subtitle },
+          product: product.id,
           unit_amount: plan.price * 100,
           recurring: { interval: 'month' },
+        // eslint-disable-next-line @typescript-eslint/no-explicit-any
         } as any,
       },
     ],

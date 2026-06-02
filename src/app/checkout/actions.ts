@@ -8,8 +8,6 @@ const stripe = new Stripe(process.env.STRIPE_SECRET_KEY!, {
   apiVersion: '2026-05-27.dahlia',
 });
 
-const resend = new Resend(process.env.RESEND_API_KEY);
-
 export type PaymentIntentResult = {
   clientSecret: string;
   subscriptionId: string;
@@ -68,6 +66,7 @@ export async function createPaymentIntent(formData: FormData): Promise<PaymentIn
 
   // Notify team
   try {
+    const resend = new Resend(process.env.RESEND_API_KEY);
     await resend.emails.send({
       from: 'Found IT Marketing <contact@founditmarketing.com>',
       to: ['trevor@founditmarketing.com'],

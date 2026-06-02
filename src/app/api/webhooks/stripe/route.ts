@@ -6,7 +6,6 @@ const stripe = new Stripe(process.env.STRIPE_SECRET_KEY!, {
   apiVersion: '2026-05-27.dahlia',
 });
 
-const resend = new Resend(process.env.RESEND_API_KEY);
 const TEAM_EMAIL = 'trevor@founditmarketing.com';
 
 export async function POST(req: NextRequest) {
@@ -24,6 +23,8 @@ export async function POST(req: NextRequest) {
   }
 
   try {
+    const resend = new Resend(process.env.RESEND_API_KEY);
+
     switch (event.type) {
 
       case 'invoice.payment_succeeded': {

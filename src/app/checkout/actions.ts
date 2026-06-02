@@ -4,17 +4,17 @@ import Stripe from 'stripe';
 import { Resend } from 'resend';
 import { PLANS } from './plans';
 
-const stripe = new Stripe(process.env.STRIPE_SECRET_KEY!, {
-  apiVersion: '2026-05-27.dahlia',
-});
-
 export type PaymentIntentResult = {
   clientSecret: string;
   subscriptionId: string;
 };
 
 export async function createPaymentIntent(formData: FormData): Promise<PaymentIntentResult> {
-  if (!process.env.STRIPE_SECRET_KEY) throw new Error('Stripe is not configured.');
+  if (!process.env.STRIPE_SECRET_KEY) throw new Error('Stripe is not configured — missing secret key.');
+
+  const stripe = new Stripe(process.env.STRIPE_SECRET_KEY, {
+    apiVersion: '2026-05-27.dahlia',
+  });
 
   const planId = formData.get('planId') as string;
   const firstName = formData.get('firstName') as string;

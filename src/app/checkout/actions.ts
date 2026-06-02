@@ -2,8 +2,6 @@
 
 import Stripe from 'stripe';
 import { Resend } from 'resend';
-import { redirect } from 'next/navigation';
-import { headers } from 'next/headers';
 import { PLANS } from './plans';
 
 const stripe = new Stripe(process.env.STRIPE_SECRET_KEY!, {
@@ -12,8 +10,12 @@ const stripe = new Stripe(process.env.STRIPE_SECRET_KEY!, {
 
 const resend = new Resend(process.env.RESEND_API_KEY);
 
+export type PaymentIntentResult = {
+  clientSecret: string;
+  subscriptionId: string;
+};
 
-export async function createCheckoutSession(formData: FormData) {
+export async function createPaymentIntent(formData: FormData): Promise<PaymentIntentResult> {
   const planId = formData.get('planId') as string;
   const firstName = formData.get('firstName') as string;
   const lastName = formData.get('lastName') as string;
@@ -24,61 +26,52 @@ export async function createCheckoutSession(formData: FormData) {
   const plan = PLANS.find((p) => p.id === planId);
   if (!plan) throw new Error('Invalid plan selected.');
 
-  const headersList = headers();
-  const origin = headersList.get('origin') ?? 'https://founditmarketing.com';
-
-  // Create or retrieve Stripe customer
+  // Create Stripe customer
   const customer = await stripe.customers.create({
     name: `${firstName} ${lastName}`,
     email,
     phone,
-    metadata: {
-      business_name: businessName,
-      plan_id: plan.id,
-    },
+    metadata: { business_name: businessName, plan_id: plan.id },
   });
 
-  // Create Stripe Checkout session in subscription mode
-  const session = await stripe.checkout.sessions.create({
+  // Create subscription in incomplete state — generates a PaymentIntent
+  const subscription = await stripe.subscriptions.create({
     customer: customer.id,
-    payment_method_types: ['card', 'us_bank_account'],
-    mode: 'subscription',
-    line_items: [
+    items: [
       {
+        // eslint-disable-next-line @typescript-eslint/no-explicit-any
         price_data: {
           currency: 'usd',
-          product_data: {
-            name: plan.name,
-            description: plan.subtitle,
-          },
+          product_data: { name: plan.name, description: plan.subtitle },
           unit_amount: plan.price * 100,
           recurring: { interval: 'month' },
-        },
-        quantity: 1,
+        } as any,
       },
     ],
-    customer_update: { name: 'auto', address: 'auto' },
-    success_url: `${origin}/checkout/success?session_id={CHECKOUT_SESSION_ID}`,
-    cancel_url: `${origin}/checkout?plan=${plan.id}`,
-    metadata: {
-      plan_id: plan.id,
-      plan_name: plan.name,
-      business_name: businessName,
+    payment_behavior: 'default_incomplete',
+    payment_settings: {
+      save_default_payment_method: 'on_subscription',
+      payment_method_types: ['card'],
     },
-    subscription_data: {
-      metadata: {
-        plan_id: plan.id,
-        business_name: businessName,
-      },
-    },
+    expand: ['latest_invoice.payment_intent'],
+    metadata: { business_name: businessName, plan_id: plan.id, plan_name: plan.name },
   });
 
-  // Send notification email
+  // eslint-disable-next-line @typescript-eslint/no-explicit-any
+  const invoice = subscription.latest_invoice as any;
+  // eslint-disable-next-line @typescript-eslint/no-explicit-any
+  const paymentIntent = invoice?.payment_intent as any;
+
+  if (!paymentIntent?.client_secret) {
+    throw new Error('Failed to initialize payment. Please try again.');
+  }
+
+  // Notify team
   try {
     await resend.emails.send({
       from: 'Found IT Marketing <contact@founditmarketing.com>',
       to: ['trevor@founditmarketing.com'],
-      subject: `New Checkout Started: ${businessName} — ${plan.name}`,
+      subject: `Checkout Started: ${businessName} — ${plan.name} ($${plan.price}/mo)`,
       html: `
         <h2>New Subscription Checkout Started</h2>
         <p><strong>Business:</strong> ${businessName}</p>
@@ -86,12 +79,10 @@ export async function createCheckoutSession(formData: FormData) {
         <p><strong>Email:</strong> ${email}</p>
         <p><strong>Phone:</strong> ${phone}</p>
         <p><strong>Plan:</strong> ${plan.name} — $${plan.price}/mo</p>
-        <p><strong>Stripe Session:</strong> ${session.id}</p>
+        <p><strong>Stripe Subscription:</strong> ${subscription.id}</p>
       `,
     });
-  } catch {
-    // Don't block redirect if email fails
-  }
+  } catch { /* don't block payment */ }
 
-  redirect(session.url!);
+  return { clientSecret: paymentIntent.client_secret, subscriptionId: subscription.id };
 }

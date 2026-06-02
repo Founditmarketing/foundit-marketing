@@ -4,12 +4,11 @@ import { useState, useRef, useTransition } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
 import Link from 'next/link';
 import { Check, Lock, ArrowRight, ArrowLeft, Loader2, ShieldCheck, CheckCircle2 } from 'lucide-react';
-import { createCheckoutSession, PLANS } from './actions';
+import { createCheckoutSession } from './actions';
+import { PLANS, type Plan } from './plans';
 import { cn } from '@/lib/utils';
 
 const ease = [0.22, 1, 0.36, 1] as [number, number, number, number];
-
-type Plan = (typeof PLANS)[number];
 type Step = 'plans' | 'info';
 
 export function CheckoutClient() {

@@ -34,8 +34,6 @@ export async function createPaymentIntent(formData: FormData): Promise<PaymentIn
     metadata: { business_name: businessName, plan_id: plan.id },
   });
 
-  console.log('[checkout] customer created:', customer.id);
-
   // Create a product for this plan
   const product = await stripe.products.create({
     name: plan.name,
@@ -59,20 +57,19 @@ export async function createPaymentIntent(formData: FormData): Promise<PaymentIn
     payment_behavior: 'default_incomplete',
     payment_settings: {
       save_default_payment_method: 'on_subscription',
-      payment_method_types: ['card'],
     },
-    expand: ['latest_invoice.payment_intent'],
+    expand: ['latest_invoice.confirmation_secret'],
     metadata: { business_name: businessName, plan_id: plan.id, plan_name: plan.name },
   });
 
   // eslint-disable-next-line @typescript-eslint/no-explicit-any
-  const invoice = subscription.latest_invoice as any;
+  const sub = subscription as any;
   // eslint-disable-next-line @typescript-eslint/no-explicit-any
-  const paymentIntent = invoice?.payment_intent as any;
+  const invoice = sub.latest_invoice as any;
 
-  console.log('[checkout] subscription created:', subscription.id, 'has secret:', !!paymentIntent?.client_secret);
+  const clientSecret = invoice?.confirmation_secret?.client_secret;
 
-  if (!paymentIntent?.client_secret) {
+  if (!clientSecret) {
     throw new Error('Failed to initialize payment. Please try again.');
   }
 
@@ -95,5 +92,5 @@ export async function createPaymentIntent(formData: FormData): Promise<PaymentIn
     });
   } catch { /* don't block payment */ }
 
-  return { clientSecret: paymentIntent.client_secret, subscriptionId: subscription.id };
+  return { clientSecret: clientSecret, subscriptionId: subscription.id };
 }

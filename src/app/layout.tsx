@@ -79,6 +79,7 @@ import { MetaPixel } from '@/components/analytics/MetaPixel';
 import { GoogleTag } from '@/components/analytics/GoogleTag';
 import { GoogleTagManager } from '@/components/analytics/GoogleTagManager';
 import { LocalBusinessSchema } from '@/components/seo/LocalBusinessSchema';
+import { Analytics } from '@vercel/analytics/next';
 
 export default function RootLayout({
   children,
@@ -108,6 +109,7 @@ export default function RootLayout({
             {children}
           </LayoutShell>
         </ThemeProvider>
+        <Analytics />
       </body>
     </html>
   );

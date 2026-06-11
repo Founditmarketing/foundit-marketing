@@ -79,6 +79,7 @@ import { MetaPixel } from '@/components/analytics/MetaPixel';
 import { GoogleTag } from '@/components/analytics/GoogleTag';
 import { GoogleTagManager } from '@/components/analytics/GoogleTagManager';
 import { LocalBusinessSchema } from '@/components/seo/LocalBusinessSchema';
+import Script from 'next/script'
 
 export default function RootLayout({
   children,
@@ -119,6 +120,10 @@ s.parentNode.insertBefore(t,s)}(window, document,'script',
 'https://connect.facebook.net/en_US/fbevents.js');
 fbq('init', '1340127494387532');
 fbq('track', 'PageView');` }} />
+      
+      {/* Google Analytics */}
+      <script dangerouslySetInnerHTML={{ __html: `window.dataLayer=window.dataLayer||[];function gtag(){dataLayer.push(arguments)}gtag('js',new Date());gtag('config','G-Q55ZS15CB7')` }} />
+      <Script src="https://www.googletagmanager.com/gtag/js?id=G-Q55ZS15CB7" strategy="afterInteractive" />
       </body>
     </html>
   );

@@ -124,6 +124,8 @@ fbq('track', 'PageView');` }} />
       {/* Google Analytics */}
       <script dangerouslySetInnerHTML={{ __html: `window.dataLayer=window.dataLayer||[];function gtag(){dataLayer.push(arguments)}gtag('js',new Date());gtag('config','G-Q55ZS15CB7')` }} />
       <Script src="https://www.googletagmanager.com/gtag/js?id=G-Q55ZS15CB7" strategy="afterInteractive" />
+            {/* Found It Lead Capture */}
+      <Script src="https://www.founditos.com/embed/lead-capture.js" data-account="c31dc5ec-0323-4946-a758-a77c0a456439" strategy="afterInteractive" />
       </body>
     </html>
   );
